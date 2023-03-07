@@ -16,9 +16,9 @@
     <!-- Menú de navegación -->
     <nav>
         <ul>
-            <li><a href="#">Sección 1</a></li>
-            <li><a href="#">Sección 2</a></li>
-            <li><a href="#">Sección 3</a></li>
+            <li><a href="#parrafos">Párrafos</a></li>
+            <li><a href="#listas">Listas</a></li>
+            <li><a href="#tablas">Tablas</a></li>
         </ul>
     </nav>
 
@@ -60,18 +60,136 @@
                 <dl>
                     <dt>HTML</dt>
                     <dd>Hyper Text Markup Language</dd>
-                    
+
                     <dt>CSS</dt>
                     <dd>Cascade Style Sheets</dd>
-                    
+
                     <dt>JS</dt>
                     <dd>JavaScript</dd>
                 </dl>
             </section>
+            <section id="tablas">
+                <h3>Tablas</h3>
+
+                <table>
+                    <caption>Productos</caption>
+
+                    <thead>
+                        <tr>
+                            <th>Id</th>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                            <th>Stock</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <!-- tr*10>(th>{$})+(td>{Producto$})+(td>{$.$$$,$$ €})+(td>{$$}) -->
+                        <tr>
+                            <th>1</th>
+                            <td>Producto1</td>
+                            <td>1.001,01 €</td>
+                            <td>01</td>
+                        </tr>
+                        <tr>
+                            <th>2</th>
+                            <td>Producto2</td>
+                            <td>2.002,02 €</td>
+                            <td>02</td>
+                        </tr>
+                        <tr>
+                            <th>3</th>
+                            <td>Producto3</td>
+                            <td>3.003,03 €</td>
+                            <td>03</td>
+                        </tr>
+                        <tr>
+                            <th>4</th>
+                            <td>Producto4</td>
+                            <td>4.004,04 €</td>
+                            <td>04</td>
+                        </tr>
+                        <tr>
+                            <th>5</th>
+                            <td>Producto5</td>
+                            <td>5.005,05 €</td>
+                            <td>05</td>
+                        </tr>
+                        <tr>
+                            <th>6</th>
+                            <td>Producto6</td>
+                            <td>6.006,06 €</td>
+                            <td>06</td>
+                        </tr>
+                        <tr>
+                            <th>7</th>
+                            <td>Producto7</td>
+                            <td>7.007,07 €</td>
+                            <td>07</td>
+                        </tr>
+                        <tr>
+                            <th>8</th>
+                            <td>Producto8</td>
+                            <td>8.008,08 €</td>
+                            <td>08</td>
+                        </tr>
+                        <tr>
+                            <th>9</th>
+                            <td>Producto9</td>
+                            <td>9.009,09 €</td>
+                            <td>09</td>
+                        </tr>
+                        <tr>
+                            <th>10</th>
+                            <td>Producto10</td>
+                            <td>10.010,10 €</td>
+                            <td>10</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="multimedia">
+                <h3>Multimedia</h3>
+
+                <figure>
+                    <img src="imgs/ai.jpg" alt="Inteligencia Artificial">
+                    <figcaption>La Inteligencia Artificial cada vez llega más lejos, pero es tonta</figcaption>
+                </figure>
+
+                <figure>
+                    <figcaption>Stomping Rock</figcaption>
+                    <audio src="audio/rock.mp3" controls></audio>
+                </figure>
+                
+                <figure>
+                    <figcaption>Big Buck Bunny</figcaption>
+                    <video src="video/bbb.mp4" controls></video>
+                </figure>
+
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.7620817665547!2d-2.915780685257022!3d43.256407886017016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e4fb46238d865%3A0xb671edfb1120ab06!2sIpartek%20Servicios%20Inform%C3%A1ticos!5e0!3m2!1ses!2ses!4v1678205845570!5m2!1ses!2ses" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/album/6nNlTIiFd3J06W0rJiiwlz?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/SVGjOUnQZ58" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </section>
         </article>
     </main>
 
-    <aside></aside>
+    <aside>
+        <ul>
+            <li><a href="https://www.google.es">Google</a></li>
+            <li><a href="otra.html">Otra</a></li>
+            <li><a href="opciones/primera.html">Primera opción</a></li>
+            <li>Bancos libres de imágenes
+                <ul>
+                    <li><a href="https://picsum.photos">Generador de imágenes</a></li>
+                    <li><a href="https://pixabay.com/es/">Pixabay</a></li>
+                    <li><a href="https://unsplash.com/es">Unsplash</a></li>
+                </ul>
+            </li>
+        </ul>
+    </aside>
 
     <!-- Pie de página -->
     <footer>
