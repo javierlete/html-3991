@@ -2,6 +2,10 @@
 
 https://javierlete.github.io/html-3991/HTML/
 
+# Mapa mental online
+
+https://javierlete.github.io/html-3991/Desarrollo%20de%20Aplicaciones%20Web.html
+
 # Referencias de HTML
 
 Estándar WHATWG: https://html.spec.whatwg.org/multipage/semantics.html
