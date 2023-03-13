@@ -1,0 +1,134 @@
+/* @import url(reset.css); */
+
+* {
+    box-sizing: border-box;
+}
+
+/* VARIABLES GLOBALES */
+
+:root {
+    --font-texto: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    
+    --color-vinculo: rgb(59, 88, 174);
+    --color-tinta: black;
+    --color-fondo: white;
+    --color-fondo-secundario: darkgray;
+
+    --espaciado: 0.5rem;
+}
+
+/* ETIQUETAS GLOBALES */
+
+body {
+    margin: 0;
+
+    background-color: var(--color-fondo);
+    color: var(--color-tinta);
+
+    font-family: var(--font-texto);
+}
+
+img, audio, video, iframe, table {
+    width: 100%;
+
+    border: 0;
+    border-radius: var(--espaciado);
+}
+
+p {
+    line-height: calc(100% + var(--espaciado));
+    text-align: justify;
+
+    margin: 2rem 0;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-vinculo);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* CABECERA */
+
+body>header {
+    background-color: var(--color-tinta);
+    color: var(--color-fondo);
+
+    padding: var(--espaciado);
+
+    text-align: center;
+}
+
+body>header h1 {
+    font-size: 2rem;
+    line-height: calc(2rem + var(--espaciado) * 2);
+    
+    margin: 0
+}
+
+/* MENÚ */
+body>nav {
+    background-color: var(--color-tinta);
+    text-align: center;
+
+    border-top: 1px solid var(--color-fondo);
+}
+
+body>nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+body>nav a {
+    display: inline-block;
+
+    width: calc(100% - 2 * var(--espaciado));
+
+    padding: var(--espaciado);
+    margin: var(--espaciado);
+    
+    color: var(--color-fondo);
+
+}
+
+body>nav a:hover {
+    background-color: var(--color-fondo);
+    color: var(--color-tinta);
+
+    text-decoration: none;
+
+    border: 1px solid var(--color-tinta);
+    border-radius: var(--espaciado);
+}
+
+/* PRINCIPAL */
+
+main {
+    padding: var(--espaciado);
+}
+
+h2 {
+    background-color: var(--color-fondo-secundario);
+    padding: var(--espaciado);
+    margin: 0 calc(-1 * var(--espaciado)) var(--espaciado);
+    text-align: center;
+}
+
+.marcado {
+    text-transform: capitalize;
+    font-variant: small-caps;
+    background-color: yellow;
+}
+
+dt {
+    font-weight: bold;
+}
+
+dd {
+    margin-left: 0;
+    margin-bottom: var(--espaciado);
+}
