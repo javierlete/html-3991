@@ -2,6 +2,7 @@
 
 /* @import url('https://fonts.googleapis.com/css2?family=Caveat&family=Tilt+Prism:XROT,YROT@30,16&display=swap'); */
 
+@import url(all.min.css); /* FontAwesome 6.3.0 */
 @import url(fonts.css);
 
 * {
