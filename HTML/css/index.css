@@ -51,9 +51,9 @@ a:hover {
     text-decoration: underline;
 }
 
-/* CABECERA */
+/* CABECERA Y PIE */
 
-body>header {
+body>header, body>footer {
     background-color: var(--color-tinta);
     color: var(--color-fondo);
 
@@ -131,4 +131,25 @@ dt {
 dd {
     margin-left: 0;
     margin-bottom: var(--espaciado);
+}
+
+/* ASIDE */
+
+aside {
+    background-color: var(--color-fondo-secundario);
+}
+
+aside ul {
+    list-style: none;
+    line-height: calc(1rem + 2 * var(--espaciado));
+}
+
+/* PIE */
+
+body>footer p {
+    text-align: center;
+}
+
+body>footer a {
+    color: var(--color-fondo);
 }
