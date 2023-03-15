@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+
     <title>Ejemplos web</title>
     <!-- <link rel="icon" type="image/x-icon" href="favicon.ico"> -->
     <link rel="stylesheet" href="css/index.css">
@@ -172,21 +172,25 @@
                     <figcaption>Big Buck Bunny</figcaption>
                 </figure>
 
-                <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.7620817665547!2d-2.915780685257022!3d43.256407886017016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e4fb46238d865%3A0xb671edfb1120ab06!2sIpartek%20Servicios%20Inform%C3%A1ticos!5e0!3m2!1ses!2ses!4v1678205845570!5m2!1ses!2ses"
-                    allowfullscreen="" loading="lazy"
-                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <div class="aspecto r1x1"><iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.7620817665547!2d-2.915780685257022!3d43.256407886017016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e4fb46238d865%3A0xb671edfb1120ab06!2sIpartek%20Servicios%20Inform%C3%A1ticos!5e0!3m2!1ses!2ses!4v1678205845570!5m2!1ses!2ses"
+                        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
 
-                <iframe
-                    src="https://open.spotify.com/embed/album/6nNlTIiFd3J06W0rJiiwlz?utm_source=generator"
-                    allowfullscreen=""
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                    loading="lazy"></iframe>
 
-                <iframe src="https://www.youtube.com/embed/SVGjOUnQZ58"
-                    title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowfullscreen></iframe>
+                <div class="aspecto r16x9">
+                    <iframe
+                        src="https://open.spotify.com/embed/album/6nNlTIiFd3J06W0rJiiwlz?utm_source=generator"
+                        allowfullscreen=""
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                        loading="lazy"></iframe>
+                </div>
+                <div class="aspecto r4x3">
+                    <iframe src="https://www.youtube.com/embed/SVGjOUnQZ58"
+                        title="YouTube video player"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
             </section>
 
             <section id="formularios">
@@ -225,7 +229,7 @@
                         <input type="number" min="0" step=".01" placeholder="Precio">
                         <input type="tel" placeholder="Teléfono">
                         <input type="url" placeholder="Página web">
-                        
+
                         <input type="checkbox">
                         <input type="checkbox" checked>
                         <input type="radio" name="hobby" id="hobby-primero" value="Primero">
@@ -248,7 +252,7 @@
                             <option value="2">Segunda</option>
                             <option value="3">Tercera</option>
                         </select>
-                        
+
                         <select name="balda-multiple" multiple>
                             <option value="1">Primera</option>
                             <option value="2">Segunda</option>
@@ -283,9 +287,12 @@
         <p>
             <a href="tel:941231234">94 123 1234</a>
             <a href="mailto:javier@suemail.net">javier@suemail.net</a>
-            <a href="http://www.google.es" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-google"></i></a>
-            <a href="http://www.youtube.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-youtube"></i></a>
-            <a href="http://www.instagram.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+            <a href="http://www.google.es" target="_blank" rel="noopener noreferrer"><i
+                    class="fa-brands fa-google"></i></a>
+            <a href="http://www.youtube.com" target="_blank" rel="noopener noreferrer"><i
+                    class="fa-brands fa-youtube"></i></a>
+            <a href="http://www.instagram.com" target="_blank" rel="noopener noreferrer"><i
+                    class="fa-brands fa-instagram"></i></a>
         </p>
     </footer>
 </body>
