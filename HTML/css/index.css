@@ -171,6 +171,31 @@ dd {
     margin-bottom: var(--espaciado);
 }
 
+/* Formulario */
+
+input, select, textarea, button, fieldset {
+    width: 100%;
+    margin-bottom: var(--espaciado);
+
+    border-radius: var(--espaciado);
+    border: 1px solid darkgray;
+
+    padding: var(--espaciado);
+}
+
+input[type=color] {
+    height: 3rem;
+}
+
+#cajas {
+    text-align: center;
+}
+
+input[type=checkbox], input[type=radio] {
+    width: auto;
+    margin: 0 auto;
+}
+
 /* ASIDE */
 
 aside {
