@@ -191,3 +191,18 @@ body>footer p {
 body>footer a {
     color: var(--color-fondo);
 }
+
+/* ARRIBA */
+
+#arriba {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 50px;
+    background-color: var(--color-tinta);
+    border-radius: 100%;
+    padding-top: 2px;
+    width: 54px;
+    height: 54px;
+    vertical-align: middle;
+}
