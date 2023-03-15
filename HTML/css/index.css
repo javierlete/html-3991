@@ -2,7 +2,8 @@
 
 /* @import url('https://fonts.googleapis.com/css2?family=Caveat&family=Tilt+Prism:XROT,YROT@30,16&display=swap'); */
 
-@import url(all.min.css); /* FontAwesome 6.3.0 */
+@import url(all.min.css);
+/* FontAwesome 6.3.0 */
 @import url(fonts.css);
 
 * {
@@ -14,7 +15,7 @@
 :root {
     --font-titulos: 'Tilt Prism', cursive;
     --font-texto: 'Caveat', cursive;
-    
+
     --color-vinculo: rgb(59, 88, 174);
     --color-tinta: black;
     --color-fondo: white;
@@ -34,11 +35,19 @@ body {
     font-family: var(--font-texto);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--font-titulos);
 }
 
-img, audio, video, table {
+img,
+audio,
+video,
+table {
     width: 100%;
 
     border: 0;
@@ -61,6 +70,36 @@ a:hover {
     text-decoration: underline;
 }
 
+/* Tablas */
+
+table {
+    border-collapse: collapse;
+    border: 1px solid black;
+}
+
+tr:nth-child(even) {
+    background-color: var(--color-fondo-secundario)
+}
+
+td, th, caption {
+    border: 1px solid black;
+    padding: var(--espaciado);
+}
+
+table caption, table thead {
+    text-transform: uppercase;
+    background-color: var(--color-tinta);
+    color: var(--color-fondo);
+}
+
+thead th:nth-child(2) {
+    text-align: left;
+}
+
+thead th:nth-child(3), thead th:nth-child(4), tbody td:nth-child(3), tbody td:nth-child(4) {
+    text-align: right;
+}
+ 
 /* iframe RESPONSIVE */
 
 .aspecto {
@@ -91,7 +130,8 @@ iframe {
 
 /* CABECERA Y PIE */
 
-body>header, body>footer {
+body>header,
+body>footer {
     background-color: var(--color-tinta);
     color: var(--color-fondo);
 
@@ -103,7 +143,7 @@ body>header, body>footer {
 body>header h1 {
     font-size: 2rem;
     line-height: calc(2rem + var(--espaciado) * 2);
-    
+
     margin: 0
 }
 
@@ -128,7 +168,7 @@ body>nav a {
 
     padding: var(--espaciado);
     margin: var(--espaciado);
-    
+
     color: var(--color-fondo);
 
 }
@@ -173,7 +213,11 @@ dd {
 
 /* Formulario */
 
-input, select, textarea, button, fieldset {
+input,
+select,
+textarea,
+button,
+fieldset {
     width: 100%;
     margin-bottom: var(--espaciado);
 
@@ -191,7 +235,8 @@ input[type=color] {
     text-align: center;
 }
 
-input[type=checkbox], input[type=radio] {
+input[type=checkbox],
+input[type=radio] {
     width: auto;
     margin: 0 auto;
 }
@@ -233,7 +278,10 @@ body>footer a {
 }
 
 @media (min-width: 425px) {
-    #listas ul, #listas ol, #listas dl {
+
+    #listas ul,
+    #listas ol,
+    #listas dl {
         display: inline-block;
         vertical-align: top;
     }
@@ -249,4 +297,52 @@ body>footer a {
     #listas dl {
         width: 48%;
     }
+}
+
+@media (min-width: 768px) {
+    body>nav ul {
+        display: flex;
+        justify-content: center;
+    }
+
+    body>nav a {
+        width: auto;
+    }
+
+    #parrafos {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    #parrafos h3 {
+        width: 100%;
+    }
+
+    #parrafos p {
+        width: 33.3333%;
+        padding-right: 2rem;
+    }
+
+    #parrafos p:first-of-type {
+        width: 100%;
+
+        margin: 0;
+    }
+
+    #parrafos p:last-of-type {
+        padding-right: 0;
+    }
+
+    aside ul {
+        display: flex;
+        gap: 1rem;
+    }
+
+    aside a {
+        width: auto;
+    }
+}
+
+@media print {
+    /* Impresora */
 }
