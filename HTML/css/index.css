@@ -231,3 +231,22 @@ body>footer a {
     height: 54px;
     vertical-align: middle;
 }
+
+@media (min-width: 425px) {
+    #listas ul, #listas ol, #listas dl {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    #listas ul {
+        width: 20%;
+    }
+
+    #listas ol {
+        width: 30%;
+    }
+
+    #listas dl {
+        width: 48%;
+    }
+}
