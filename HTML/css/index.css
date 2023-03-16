@@ -85,12 +85,15 @@ tr:nth-child(even) {
     background-color: var(--color-fondo-secundario)
 }
 
-td, th, caption {
+td,
+th,
+caption {
     border: 1px solid black;
     padding: var(--espaciado);
 }
 
-table caption, table thead {
+table caption,
+table thead {
     text-transform: uppercase;
     background-color: var(--color-tinta);
     color: var(--color-fondo);
@@ -100,10 +103,13 @@ thead th:nth-child(2) {
     text-align: left;
 }
 
-thead th:nth-child(3), thead th:nth-child(4), tbody td:nth-child(3), tbody td:nth-child(4) {
+thead th:nth-child(3),
+thead th:nth-child(4),
+tbody td:nth-child(3),
+tbody td:nth-child(4) {
     text-align: right;
 }
- 
+
 /* iframe RESPONSIVE */
 
 .aspecto {
@@ -216,6 +222,12 @@ dd {
     margin-bottom: var(--espaciado);
 }
 
+/* Multimedia */
+
+#multimedia>* {
+    margin-bottom: 1rem;
+}
+
 /* Formulario */
 
 input,
@@ -308,7 +320,7 @@ body>footer a {
     main {
         padding: 1rem 5rem;
     }
-    
+
     body>nav ul {
         display: flex;
         justify-content: center;
@@ -371,6 +383,51 @@ body>footer a {
         display: flex;
         flex-direction: row-reverse;
         align-items: flex-start;
+    }
+}
+
+@media (min-width: 1024px) {
+    article {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: calc(2 * var(--espaciado));
+
+        grid-template-areas:
+            "titulo titulo"
+            "parrafos parrafos"
+            "listas multimedia"
+            "tablas multimedia"
+            "formularios multimedia";
+    }
+
+    article>h2 {
+        grid-area: titulo;
+    }
+
+    #parrafos {
+        grid-area: parrafos;
+    }
+
+    #listas {
+        grid-area: listas;
+    }
+
+    #tablas {
+        grid-area: tablas;
+    }
+
+    #multimedia {
+        grid-area: multimedia;
+    }
+
+    #formularios {
+        grid-area: formularios;
+
+        display: block;
+    }
+
+    #formularios form:last-of-type {
+        display: block;
     }
 }
 
