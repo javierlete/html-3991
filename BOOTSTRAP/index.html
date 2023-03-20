@@ -6,27 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Ejemplos web</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
     <!-- Cabecera de la página -->
-    <header>
+    <header class="d-none">
         <h1>Ejemplo de página web</h1>
     </header>
 
     <!-- Menú de navegación -->
-    <nav>
-        <ul>
-            <li><a href="#parrafos">Párrafos</a></li>
-            <li><a href="#listas">Listas</a></li>
-            <li><a href="#tablas">Tablas</a></li>
-        </ul>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Ejemplo de página web</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#parrafos">Párrafos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#listas">Listas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tablas">Tablas</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </nav>
 
     <!-- Parte principal de la página -->
-    <main>
+    <main class="container">
         <article id="html">
-            <h2>HTML</h2>
+            <h2 class="display-1 fw-bold  text-center text-bg-secondary">HTML</h2>
 
             <section id="parrafos">
                 <h3>Párrafos</h3>
@@ -36,16 +58,16 @@
                     Omnis non repudiandae qui,
                     illum placeat sequi aliquid, asperiores possimus inventore soluta aliquam. Corporis sed quas
                     accusantium aut, veritatis voluptas beatae dicta?</p>
-                <p><span class="marcado">Odit</span> suscipit nihil deserunt iusto nam officia eveniet ullam doloribus
+                <p><span class="mark">Odit</span> suscipit nihil deserunt iusto nam officia eveniet ullam doloribus
                     illum quo nisi obcaecati minima maiores unde maxime iure, esse est optio quasi laboriosam quaerat
                     expedita doloremque possimus inventore. Vero!</p>
-                <p>Dolorem <span class="marcado">laboriosam nam</span> officia aspernatur vel, quis accusamus? Amet
+                <p>Dolorem <span class="mark">laboriosam nam</span> officia aspernatur vel, quis accusamus? Amet
                     perspiciatis placeat, optio pariatur, hic dolore vel incidunt ipsam culpa itaque at labore officia
                     consequuntur. Eaque cumque veritatis doloribus velit a!</p>
             </section>
 
-            <section id="listas">
-                <h3>Listas</h3>
+            <section id="listas" class="d-flex flex-wrap gap-3">
+                <h3 class="w-100">Listas</h3>
 
                 <ul>
                     <li>Uno</li>
@@ -74,79 +96,78 @@
             <section id="tablas">
                 <h3>Tablas</h3>
 
-                <table>
+                <table class="table table-bordered table-striped table-hover">
                     <caption>Productos</caption>
-
-                    <thead>
+                    <thead class="table-dark">
                         <tr>
-                            <th>Id</th>
+                            <th class="text-center">Id</th>
                             <th>Nombre</th>
-                            <th>Precio</th>
-                            <th>Stock</th>
+                            <th class="text-end">Precio</th>
+                            <th class="text-end">Stock</th>
                         </tr>
                     </thead>
 
                     <tbody>
                         <!-- tr*10>(th>{$})+(td>{Producto$})+(td>{$.$$$,$$ €})+(td>{$$}) -->
                         <tr>
-                            <th>1</th>
+                            <th class="text-center">1</th>
                             <td>Producto1</td>
-                            <td>1.001,01 €</td>
-                            <td>01</td>
+                            <td class="text-end">1.001,01 €</td>
+                            <td class="text-end">01</td>
                         </tr>
                         <tr>
-                            <th>2</th>
+                            <th class="text-center">2</th>
                             <td>Producto2</td>
-                            <td>2.002,02 €</td>
-                            <td>02</td>
+                            <td class="text-end">2.002,02 €</td>
+                            <td class="text-end">02</td>
                         </tr>
                         <tr>
-                            <th>3</th>
+                            <th class="text-center">3</th>
                             <td>Producto3</td>
-                            <td>3.003,03 €</td>
-                            <td>03</td>
+                            <td class="text-end">3.003,03 €</td>
+                            <td class="text-end">03</td>
                         </tr>
                         <tr>
-                            <th>4</th>
+                            <th class="text-center">4</th>
                             <td>Producto4</td>
-                            <td>4.004,04 €</td>
-                            <td>04</td>
+                            <td class="text-end">4.004,04 €</td>
+                            <td class="text-end">04</td>
                         </tr>
                         <tr>
-                            <th>5</th>
+                            <th class="text-center">5</th>
                             <td>Producto5</td>
-                            <td>5.005,05 €</td>
-                            <td>05</td>
+                            <td class="text-end">5.005,05 €</td>
+                            <td class="text-end">05</td>
                         </tr>
                         <tr>
-                            <th>6</th>
+                            <th class="text-center">6</th>
                             <td>Producto6</td>
-                            <td>6.006,06 €</td>
-                            <td>06</td>
+                            <td class="text-end">6.006,06 €</td>
+                            <td class="text-end">06</td>
                         </tr>
                         <tr>
-                            <th>7</th>
+                            <th class="text-center">7</th>
                             <td>Producto7</td>
-                            <td>7.007,07 €</td>
-                            <td>07</td>
+                            <td class="text-end">7.007,07 €</td>
+                            <td class="text-end">07</td>
                         </tr>
                         <tr>
-                            <th>8</th>
+                            <th class="text-center">8</th>
                             <td>Producto8</td>
-                            <td>8.008,08 €</td>
-                            <td>08</td>
+                            <td class="text-end">8.008,08 €</td>
+                            <td class="text-end">08</td>
                         </tr>
                         <tr>
-                            <th>9</th>
+                            <th class="text-center">9</th>
                             <td>Producto9</td>
-                            <td>9.009,09 €</td>
-                            <td>09</td>
+                            <td class="text-end">9.009,09 €</td>
+                            <td class="text-end">09</td>
                         </tr>
                         <tr>
-                            <th>10</th>
+                            <th class="text-center">10</th>
                             <td>Producto10</td>
-                            <td>10.010,10 €</td>
-                            <td>10</td>
+                            <td class="text-end">10.010,10 €</td>
+                            <td class="text-end">10</td>
                         </tr>
                     </tbody>
                 </table>
@@ -155,34 +176,36 @@
             <section id="multimedia">
                 <h3>Multimedia</h3>
 
-                <figure>
-                    <img src="imgs/ai.jpg" alt="Inteligencia Artificial">
-                    <figcaption>La Inteligencia Artificial cada vez llega más lejos, pero es tonta</figcaption>
+                <figure class="figure">
+                    <img class="figure-img img-fluid rounded" src="imgs/ai.jpg" alt="Inteligencia Artificial">
+                    <figcaption class="figure-caption">La Inteligencia Artificial cada vez llega más lejos, pero es
+                        tonta</figcaption>
                 </figure>
 
-                <figure>
-                    <audio src="audio/rock.mp3" controls></audio>
-                    <figcaption>Stomping Rock</figcaption>
+                <figure class="figure w-100">
+                    <audio class="w-100" src="audio/rock.mp3" controls></audio>
+                    <figcaption class="figure-caption">Stomping Rock</figcaption>
                 </figure>
 
-                <figure>
-                    <video src="video/bbb.mp4" controls></video>
-                    <figcaption>Big Buck Bunny</figcaption>
+                <figure class="figure w-100">
+                    <video class="figure-img w-100 rounded" src="video/bbb.mp4" controls></video>
+                    <figcaption class="figure-caption">Big Buck Bunny</figcaption>
                 </figure>
 
-                <div class="aspecto r1x1"><iframe
+                <div class="ratio ratio-1x1">
+                    <iframe
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2905.7620817665547!2d-2.915780685257022!3d43.256407886017016!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4e4fb46238d865%3A0xb671edfb1120ab06!2sIpartek%20Servicios%20Inform%C3%A1ticos!5e0!3m2!1ses!2ses!4v1678205845570!5m2!1ses!2ses"
                         allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
 
 
-                <div class="aspecto r16x9">
+                <div class="ratio ratio-16x9">
                     <iframe src="https://open.spotify.com/embed/album/6nNlTIiFd3J06W0rJiiwlz?utm_source=generator"
                         allowfullscreen=""
                         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
                         loading="lazy"></iframe>
                 </div>
-                <div class="aspecto r4x3">
+                <div class="ratio ratio-4x3">
                     <iframe src="https://www.youtube.com/embed/SVGjOUnQZ58" title="YouTube video player"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen></iframe>
@@ -195,25 +218,25 @@
                 <form action="#">
                     <fieldset>
                         <legend>Login</legend>
-                        <div>
-                            <label for="usuario">Email</label>
-                            <input required minlength="2" type="email" id="usuario">
+                        <div class="mb-3">
+                            <label class="form-label" for="usuario">Email</label>
+                            <input class="form-control" required minlength="2" type="email" id="usuario">
                         </div>
-                        <div>
-                            <label for="password">Contraseña</label>
-                            <input required minlength="8" type="password" id="password">
+                        <div class="mb-3">
+                            <label class="form-label" for="password">Contraseña</label>
+                            <input class="form-control" required minlength="8" type="password" id="password">
                         </div>
-                        <div>
-                            <button>Aceptar</button>
+                        <div class="mb-3">
+                            <button class="btn btn-primary">Aceptar</button>
                         </div>
                     </fieldset>
                 </form>
 
                 <form action="https://www.google.com/search">
                     <fieldset>
-                        <input type="search" placeholder="Buscar en Google" name="q">
-                        <button>Buscar</button>
-                        <button type="reset">Limpiar</button>
+                        <input class="mb-3 form-control" type="search" placeholder="Buscar en Google" name="q">
+                        <button class="btn btn-primary">Buscar</button>
+                        <button class="btn btn-danger" type="reset">Limpiar</button>
                     </fieldset>
                 </form>
 
@@ -221,76 +244,98 @@
                     <fieldset>
                         <legend>Inputs</legend>
 
-                        <input type="number" min="0" placeholder="Número">
-                        <input type="number" min="0" step=".01" placeholder="Precio">
-                        <input type="tel" placeholder="Teléfono">
-                        <input type="url" placeholder="Página web">
+                        <input class="form-control" type="number" min="0" placeholder="Número">
+                        <input class="form-control" type="number" min="0" step=".01" placeholder="Precio">
+                        <input class="form-control" type="tel" placeholder="Teléfono">
+                        <input class="form-control" type="url" placeholder="Página web">
 
                         <div id="cajas">
-                            <input type="checkbox">
-                            <input type="checkbox" checked>
-                            <input type="radio" name="hobby" id="hobby-primero" value="Primero">
-                            <input type="radio" name="hobby" id="hobby-segundo" value="Segundo">
+                            <input class="form-check-input" type="checkbox">
+                            <input class="form-check-input" type="checkbox" checked>
+                            <input class="form-check-input" type="radio" name="hobby" id="hobby-primero"
+                                value="Primero">
+                            <input class="form-check-input" type="radio" name="hobby" id="hobby-segundo"
+                                value="Segundo">
                         </div>
-                        
-                        <input type="color">
 
-                        <input type="date">
-                        <input type="datetime-local">
-                        <input type="time">
+                        <input class="form-control" type="color">
 
-                        <button>Aceptar</button>
+                        <input class="form-control" type="date">
+                        <input class="form-control" type="datetime-local">
+                        <input class="form-control" type="time">
+
+                        <button class="my-3 btn btn-secondary">Aceptar</button>
                     </fieldset>
 
                     <fieldset>
                         <legend>Otros</legend>
 
-                        <select name="balda">
+                        <select class="mb-3 form-select" name="balda">
                             <option value="1">Primera</option>
                             <option value="2">Segunda</option>
                             <option value="3">Tercera</option>
                         </select>
 
-                        <select name="balda-multiple" multiple>
+                        <select class="mb-3 form-select" name="balda-multiple" multiple>
                             <option value="1">Primera</option>
                             <option value="2">Segunda</option>
                             <option value="3">Tercera</option>
                         </select>
 
-                        <textarea maxlength="1000"></textarea>
+                        <textarea class="mb-3 form-control" maxlength="1000"></textarea>
                     </fieldset>
                 </form>
             </section>
         </article>
     </main>
 
-    <aside>
-        <ul>
-            <li><a href="https://www.google.es">Google</a></li>
-            <li><a href="otra.html">Otra</a></li>
-            <li><a href="opciones/primera.html">Primera opción</a></li>
-            <li>Bancos libres de imágenes
-                <ul>
-                    <li><a href="https://picsum.photos">Generador de imágenes</a></li>
-                    <li><a href="https://pixabay.com/es/">Pixabay</a></li>
-                    <li><a href="https://unsplash.com/es">Unsplash</a></li>
+    <aside class="container text-bg-secondary">
+        <ul class="nav flex-column">
+            <li class="nav-item"><a class="text-light nav-link" href="https://www.google.es">Google</a></li>
+            <li class="nav-item"><a class="text-light nav-link" href="otra.html">Otra</a></li>
+            <li class="nav-item"><a class="text-light nav-link" href="opciones/primera.html">Primera opción</a></li>
+            <li class="nav-item dropdown">
+                <a class="text-light nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button"
+                    aria-expanded="false">Bancos libres de imágenes</a>
+                <ul class="dropdown-menu">
+                    <li class="nav-item"><a class="dropdown-item" href="https://picsum.photos">Generador de imágenes</a></li>
+                    <li class="nav-item"><a class="dropdown-item" href="https://pixabay.com/es/">Pixabay</a></li>
+                    <li class="nav-item"><a class="dropdown-item" href="https://unsplash.com/es">Unsplash</a></li>
                 </ul>
             </li>
         </ul>
     </aside>
 
     <!-- Pie de página -->
-    <footer>
+    <footer class="text-bg-dark p-3">
         <p>&copy;2023 Javier Lete</p>
         <p>
-            <a href="tel:941231234">94 123 1234</a>
-            <a href="mailto:javier@suemail.net">javier@suemail.net</a>
-            <a href="http://www.google.es" target="_blank" rel="noopener noreferrer"><i
-                    class="fa-brands fa-google"></i></a>
-            <a href="http://www.youtube.com" target="_blank" rel="noopener noreferrer"><i
-                    class="fa-brands fa-youtube"></i></a>
-            <a href="http://www.instagram.com" target="_blank" rel="noopener noreferrer"><i
-                    class="fa-brands fa-instagram"></i></a>
+            <a class="text-light text-decoration-none" href="tel:941231234">94 123 1234</a>
+            <a class="text-light text-decoration-none" href="mailto:javier@suemail.net">javier@suemail.net</a>
+            <a class="text-light text-decoration-none" href="http://www.google.es" target="_blank"
+                rel="noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-google"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z" />
+                </svg>
+            </a>
+            <a class="text-light text-decoration-none" href="http://www.youtube.com" target="_blank"
+                rel="noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-youtube"
+                    viewBox="0 0 16 16">
+                    <path
+                        d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z" />
+                </svg>
+            </a>
+            <a class="text-light text-decoration-none" href="http://www.instagram.com" target="_blank"
+                rel="noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-instagram" viewBox="0 0 16 16">
+                    <path
+                        d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z" />
+                </svg>
+            </a>
         </p>
         <p><a id="arriba" href="#"><i class="fa-solid fa-circle-up"></i></a></p>
     </footer>
