@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+
+    <base href="../">
+
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <script src="js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+    <header class="sticky-top">
+        <h1 class="d-none">Tienda</h1>
+
+        <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Tienda</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Principal</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Ofertas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Informática</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Electrodomésticos</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="admin/listado.html">Administración</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container my-5">
+        <form action="admin/listado.html" class="needs-validation" novalidate>
+            <div class="row mb-3">
+                <label for="id" class="col-sm-2 col-form-label">Id</label>
+                <div class="col-sm-10">
+                    <input type="number" readonly class="form-control" id="id">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
+                <div class="col-sm-10">
+                    <input type="text" required minlength="2" class="form-control" id="nombre">
+                    <div class="form-text">Requerido</div>
+                    <div class="invalid-feedback">El nombre es requerido y necesita 2 o más caracteres</div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="marca" class="col-sm-2 col-form-label"><span class="text-danger">La</span> marca</label>
+                <div class="col-sm-10">
+                    <input type="text" class="form-control" id="marca">
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="estrellas" class="col-sm-2 col-form-label">Estrellas</label>
+                <div class="col-sm-10">
+                    <input type="number" min="0" max="10" class="form-control" id="estrellas">
+                    <div class="invalid-feedback">Las estrellas deben valer entre 0 y 10</div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <label for="precio" class="col-sm-2 col-form-label">Precio</label>
+                <div class="col-sm-10">
+                    <input type="number" step=".01" min="0" required class="form-control" id="precio">
+                    <div class="form-text">Requerido</div>
+                    <div class="invalid-feedback">El precio es requerido y debe ser como mínimo 0</div>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="offset-sm-2 col-sm-10">
+                    <button type="submit" class="btn btn-primary">Aceptar</button>
+                </div>
+            </div>
+        </form>
+
+        <script src="js/validacion-formulario.js"></script>
+    </main>
+
+    <footer class="d-flex text-bg-dark p-3">
+        <p>&copy;2023 Javier Lete</p>
+        <p class="ms-auto">
+            <a class="text-light" href="#"><i class="bi bi-tiktok"></i></a>
+            <a class="text-light" href="#"><i class="bi bi-youtube"></i></a>
+            <a class="text-light" href="#"><i class="bi bi-instagram"></i></a>
+            <a class="text-light" href="#"><i class="bi bi-facebook"></i></a>
+        </p>
+    </footer>
+
+
+</body>
+
+</html>
