@@ -301,7 +301,12 @@
 	<li class="col" id="FMID_1578564206FM"><div class="nodecontent" style="color:#000000;font-size:83%;font-weight:bold;">number</div>
 		<ul class="subexp">
 	<li class="basic" id="FMID_354792691FM"><div class="nodecontent" style="color:#000000;font-size:83%;">5</div></li>
-	<li class="basic" id="FMID_61228758FM"><div class="nodecontent" style="color:#000000;font-size:83%;">3.6</div></li></ul></li>
+	<li class="basic" id="FMID_61228758FM"><div class="nodecontent" style="color:#000000;font-size:83%;">3.6</div></li>
+	<li class="col" id="FMID_1245907459FM"><div class="nodecontent" style="color:#000000;font-size:83%;font-weight:bold;">NaN</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1549975603FM"><div class="nodecontent" style="color:#000000;font-size:83%;font-weight:bold;">isNaN(variable)</div></li></ul></li>
+	<li class="basic" id="FMID_1310375666FM"><div class="nodecontent" style="color:#000000;font-size:83%;font-weight:bold;">Infinity</div></li>
+	<li class="basic" id="FMID_856071604FM"><div class="nodecontent" style="color:#000000;font-size:83%;font-weight:bold;">-Infinity</div></li></ul></li>
 	<li class="col" id="FMID_1761906762FM"><div class="nodecontent" style="color:#000000;font-size:83%;font-weight:bold;">string</div>
 		<ul class="subexp">
 	<li class="basic" id="FMID_1986226225FM"><div class="nodecontent" style="color:#000000;font-size:83%;font-weight:bold;"><p>
@@ -314,8 +319,8 @@
 	<li class="basic" id="FMID_779735843FM"><div class="nodecontent" style="color:#000000;font-size:83%;font-weight:bold;">true</div></li>
 	<li class="basic" id="FMID_285407372FM"><div class="nodecontent" style="color:#000000;font-size:83%;font-weight:bold;">false</div></li></ul></li>
 	<li class="basic" id="FMID_1026746728FM"><div class="nodecontent" style="color:#000000;font-size:83%;font-weight:bold;">object</div></li></ul></li>
-	<li class="col" id="FMID_1605575876FM"><div class="nodecontent" style="color:#000000;font-size:83%;">Array</div>
-		<ul class="subexp">
+	<li class="exp" id="FMID_1605575876FM"><div class="nodecontent" style="color:#000000;font-size:83%;">Array</div>
+		<ul class="sub">
 	<li class="basic" id="FMID_941931460FM"><div class="nodecontent" style="color:#000000;font-size:83%;">[]</div></li>
 	<li class="basic" id="FMID_164176177FM"><div class="nodecontent" style="color:#000000;font-size:83%;">[5, 6, 7, 8, 8]</div></li>
 	<li class="col" id="FMID_976391609FM"><div class="nodecontent" style="color:#000000;font-size:83%;">arr[3] = 5;</div>
@@ -327,8 +332,8 @@
 	<li class="col" id="FMID_1424204085FM"><div class="nodecontent" style="color:#000000;font-size:83%;font-weight:bold;">arr.length</div>
 		<ul class="subexp">
 	<li class="basic" id="FMID_294045513FM"><div class="nodecontent" style="color:#000000;font-size:83%;">Cuántos elementos tiene</div></li></ul></li></ul></li>
-	<li class="col" id="FMID_1965495180FM"><div class="nodecontent" style="color:#000000;font-size:83%;">Expresiones</div>
-		<ul class="subexp">
+	<li class="exp" id="FMID_1965495180FM"><div class="nodecontent" style="color:#000000;font-size:83%;">Expresiones</div>
+		<ul class="sub">
 	<li class="col" id="FMID_335719020FM"><div class="nodecontent" style="color:#000000;font-size:83%;">Operadores</div>
 		<ul class="subexp">
 	<li class="col" id="FMID_1570165602FM"><div class="nodecontent" style="color:#000000;font-size:83%;">Aritméticos</div>
@@ -450,14 +455,45 @@
 		<ul class="subexp">
 	<li class="col" id="FMID_1264836295FM"><div class="nodecontent" style="color:#000000;font-size:83%;">Condicionales</div>
 		<ul class="subexp">
-	<li class="col" id="FMID_181152822FM"><div class="nodecontent" style="color:#000000;font-size:83%;">if</div>
+	<li class="col" id="FMID_181152822FM"><div class="nodecontent" style="color:#000000;font-size:83%;font-weight:bold;">if</div>
 		<ul class="subexp">
-	<li class="basic" id="FMID_1422163329FM"><div class="nodecontent" style="color:#000000;font-size:83%;">if (boolean) {<br />   sentencias_verdadero;<br />}</div></li>
-	<li class="basic" id="FMID_240064957FM"><div class="nodecontent" style="color:#000000;font-size:83%;">if (boolean) {<br />   sentencias_verdadero;<br />} else {<br />   sentencias_falso;<br />}</div></li>
-	<li class="basic" id="FMID_1939463170FM"><div class="nodecontent" style="color:#000000;font-size:83%;">if (boolean1) {<br />   sentencias_verdadero;<br />} else if (boolean2) {<br />   sentencias_verdadero2;<br />} else {<br />   sentencias_falso;<br />}</div></li></ul></li></ul></li>
+	<li class="basic" id="FMID_1422163329FM"><div class="nodecontent" style="color:#000000;font-size:83%;font-weight:bold;">if (boolean) {<br />   sentencias_verdadero;<br />}</div></li>
+	<li class="basic" id="FMID_240064957FM"><div class="nodecontent" style="color:#000000;font-size:83%;font-weight:bold;">if (boolean) {<br />   sentencias_verdadero;<br />} else {<br />   sentencias_falso;<br />}</div></li>
+	<li class="basic" id="FMID_1939463170FM"><div class="nodecontent" style="color:#000000;font-size:83%;font-weight:bold;">if (boolean1) {<br />   sentencias_verdadero;<br />} else if (boolean2) {<br />   sentencias_verdadero2;<br />} else {<br />   sentencias_falso;<br />}</div></li></ul></li>
+	<li class="col" id="FMID_1152974560FM"><div class="nodecontent" style="color:#000000;font-size:83%;font-weight:bold;">switch</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_929519409FM"><div class="nodecontent" style="color:#000000;font-size:83%;">"Se entra por el case, se sale por el break"</div></li>
+	<li class="basic" id="FMID_800240188FM"><div class="nodecontent" style="color:#000000;font-size:83%;font-weight:bold;">switch(variable) {<br />  case 1: sentencias_si_1; break;<br />  case 2: sentencias_si_2; break;<br />  default: sentencias_si_no;<br />}</div></li></ul></li></ul></li>
 	<li class="col" id="FMID_1542146336FM"><div class="nodecontent" style="color:#000000;font-size:83%;">Bucles</div>
 		<ul class="subexp">
-	<li class="basic" id="FMID_1648500455FM"><div class="nodecontent" style="color:#000000;font-size:83%;">while (boolean) {<br />   sentencias_a_ejecutar_si_es_cierto;<br />}</div></li></ul></li></ul></li></ul></li></ul></li>
+	<li class="col" id="FMID_1299615063FM"><div class="nodecontent" style="color:#000000;font-size:83%;font-weight:bold;">while</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_706021907FM"><div class="nodecontent" style="color:#000000;font-size:83%;">Se repetirá 0 o más veces</div></li>
+	<li class="basic" id="FMID_1648500455FM"><div class="nodecontent" style="color:#000000;font-size:83%;font-weight:bold;">while (boolean) {<br />   sentencias_a_ejecutar_si_es_cierto;<br />}</div></li></ul></li>
+	<li class="col" id="FMID_714145143FM"><div class="nodecontent" style="color:#000000;font-size:83%;font-weight:bold;">do..while</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1802942789FM"><div class="nodecontent" style="color:#000000;font-size:83%;">Se repetirá 1 o más veces</div></li>
+	<li class="basic" id="FMID_1377862993FM"><div class="nodecontent" style="color:#000000;font-size:83%;font-weight:bold;">do {<br />  sentencias_a_ejecutar;<br />} while(boolean);</div></li></ul></li>
+	<li class="col" id="FMID_1116568260FM"><div class="nodecontent" style="color:#000000;font-size:83%;font-weight:bold;">for</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_465128854FM"><div class="nodecontent" style="color:#000000;font-size:83%;font-weight:bold;">for(let i = 1; i &lt;= 10; i++) { console.log(i); }</div></li>
+	<li class="basic" id="FMID_805482967FM"><div class="nodecontent" style="color:#000000;font-size:83%;font-weight:bold;">for(let clave in datos) { console.log(clave, datos[clave]); }</div></li>
+	<li class="basic" id="FMID_1779774425FM"><div class="nodecontent" style="color:#000000;font-size:83%;font-weight:bold;">for(let valor of datos) { console.log(valor); }</div></li></ul></li>
+	<li class="col" id="FMID_1465738982FM"><div class="nodecontent" style="color:#000000;font-size:83%;font-weight:bold;">break</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1242647039FM"><div class="nodecontent" style="color:#000000;font-size:83%;">Rompe el bucle en el que se encuentra</div></li></ul></li>
+	<li class="col" id="FMID_1733194376FM"><div class="nodecontent" style="color:#000000;font-size:83%;font-weight:bold;">continue</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1702432495FM"><div class="nodecontent" style="color:#000000;font-size:83%;">Salta a la siguiente repetición del bucle</div></li></ul></li></ul></li></ul></li>
+	<li class="col" id="FMID_1241356922FM"><div class="nodecontent" style="color:#000000;font-size:83%;">Funciones</div>
+		<ul class="subexp">
+	<li class="col" id="FMID_1361989884FM"><div class="nodecontent" style="color:#000000;font-size:83%;">Declaración de la función</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1806867076FM"><div class="nodecontent" style="color:#000000;font-size:83%;font-weight:bold;">function nombreDeLaFuncion(parametro1, parametro2) {<br />  return datoADevolver;<br />}</div></li></ul></li>
+	<li class="col" id="FMID_8165351FM"><div class="nodecontent" style="color:#000000;font-size:83%;">Invocación de la función</div>
+		<ul class="subexp">
+	<li class="basic" id="FMID_1651577070FM"><div class="nodecontent" style="color:#000000;font-size:83%;">let x = 20;</div></li>
+	<li class="basic" id="FMID_1693194421FM"><div class="nodecontent" style="color:#000000;font-size:83%;font-weight:bold;">let resultado = nombreDeLaFuncion(x, 5)</div></li></ul></li></ul></li></ul></li></ul></li>
 	<li class="exp" id="FMID_1520406308FM"><div class="nodecontent" style="color:#000000;font-size:83%;font-weight:bold;">Sitios de referencia</div>
 		<ul class="sub">
 	<li class="exp" id="FMID_1877339743FM"><div class="nodecontent" style="color:#000000;font-size:83%;font-weight:bold;"><a href="https://spec.whatwg.org/">https://spec.whatwg.org/</a> <a href="https://spec.whatwg.org/"><img src="Desarrollo%20de%20Aplicaciones%20Web.html_files/ilink.png" alt="User Link" style="border-width:0" /></a></div>
