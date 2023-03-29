@@ -28,3 +28,16 @@ const personas = [ persona, persona2, { nombre: 'Juan' }];
 personas[1].apellidos = 'Pérez González';
 
 console.log(personas);
+
+console.log(typeof funcionNombreCompleto);
+
+persona.nombreCompleto = funcionNombreCompleto;
+
+persona.apellido = 'Letengo que decir algo';
+
+console.log('PERSONA NOMBRE COMPLETO', persona.nombreCompleto());
+console.log('NOMBRE COMPLETO', funcionNombreCompleto.bind(persona)());
+
+function funcionNombreCompleto() {
+    return `${this.nombre} ${this.apellido}`;
+}
