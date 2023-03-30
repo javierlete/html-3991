@@ -1,8 +1,8 @@
 'use strict';
 
 let canvas, contexto;
-const SALTO = 1; // píxeles
-const INTERVALO = 1; // milisegundos
+const SALTO = 20; // píxeles
+const INTERVALO = 200; // milisegundos
 let tecla;
 let jugando = true;
 let repeticion;
@@ -10,19 +10,25 @@ const TAMANO = 20;
 
 window.addEventListener('DOMContentLoaded', function() {
     canvas = document.getElementById('tablero');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
     contexto = canvas.getContext('2d');
 
-    const serpiente = new Serpiente(10, 10, TAMANO, TAMANO, 'blue');
+    const serpiente = new Serpiente(TAMANO, TAMANO, TAMANO, TAMANO, 'blue');
+    const manzana = new Serpiente(20, 80, TAMANO, TAMANO, 'green');
     const fondo = new Fondo('lightgray');
     
     repeticion = setInterval(function() {
         fondo.dibujar();
 
+        manzana.dibujar();
+
         switch(tecla) {
             case 'ArrowUp':
                 serpiente.y -= SALTO;
                 
-                if(serpiente.y < 0) {
+                if(serpiente.y <= 0) {
                     gameover();
                 }
 
@@ -30,7 +36,7 @@ window.addEventListener('DOMContentLoaded', function() {
             case 'ArrowDown':
                 serpiente.y += SALTO;
                 
-                if(serpiente.y > canvas.height - TAMANO - 1) {
+                if(serpiente.y >= canvas.height - TAMANO - 1) {
                     gameover();
                 }
                 
@@ -38,7 +44,7 @@ window.addEventListener('DOMContentLoaded', function() {
             case 'ArrowLeft':
                 serpiente.x -= SALTO;
                 
-                if(serpiente.x < 0) {
+                if(serpiente.x <= 0) {
                     gameover();
                 }
                 
@@ -46,7 +52,7 @@ window.addEventListener('DOMContentLoaded', function() {
             case 'ArrowRight':
                 serpiente.x += SALTO;
                 
-                if(serpiente.x > canvas.width - TAMANO - 1) {
+                if(serpiente.x >= canvas.width - TAMANO - 1) {
                     gameover();
                 }
                 
@@ -94,5 +100,7 @@ function gameover() {
 
     clearInterval(repeticion);
 
-    alert('Has perdido');
+    contexto.font = '700 40px/2 sans-serif';
+    contexto.fillStyle = 'black';
+    contexto.fillText('Has perdido', 0, 40);
 }
