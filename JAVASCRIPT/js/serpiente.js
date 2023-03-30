@@ -1,7 +1,9 @@
 'use strict';
 
 let canvas, contexto;
-const SALTO = 5;
+const SALTO = 1; // píxeles
+const INTERVALO = 3; // milisegundos
+let tecla;
 
 window.addEventListener('DOMContentLoaded', function() {
     canvas = document.getElementById('tablero');
@@ -10,13 +12,10 @@ window.addEventListener('DOMContentLoaded', function() {
     const serpiente = new Serpiente(10, 10, 20, 20, 'blue');
     const fondo = new Fondo('lightgray');
     
-    fondo.dibujar();
-    serpiente.dibujar();
-
-    window.addEventListener('keydown', function(e) {
+    this.setInterval(function() {
         fondo.dibujar();
 
-        switch(e.code) {
+        switch(tecla) {
             case 'ArrowUp':
                 serpiente.y -= SALTO;
                 break;
@@ -32,7 +31,10 @@ window.addEventListener('DOMContentLoaded', function() {
         }
 
         serpiente.dibujar();
+    }, INTERVALO);
 
+    window.addEventListener('keydown', function(e) {
+        tecla = e.code;
     });
 
 });
