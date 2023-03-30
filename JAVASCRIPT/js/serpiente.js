@@ -2,31 +2,54 @@
 
 let canvas, contexto;
 const SALTO = 1; // píxeles
-const INTERVALO = 3; // milisegundos
+const INTERVALO = 1; // milisegundos
 let tecla;
+let jugando = true;
+let repeticion;
+const TAMANO = 20;
 
 window.addEventListener('DOMContentLoaded', function() {
     canvas = document.getElementById('tablero');
     contexto = canvas.getContext('2d');
 
-    const serpiente = new Serpiente(10, 10, 20, 20, 'blue');
+    const serpiente = new Serpiente(10, 10, TAMANO, TAMANO, 'blue');
     const fondo = new Fondo('lightgray');
     
-    this.setInterval(function() {
+    repeticion = setInterval(function() {
         fondo.dibujar();
 
         switch(tecla) {
             case 'ArrowUp':
                 serpiente.y -= SALTO;
+                
+                if(serpiente.y < 0) {
+                    gameover();
+                }
+
                 break;
             case 'ArrowDown':
                 serpiente.y += SALTO;
+                
+                if(serpiente.y > canvas.height - TAMANO - 1) {
+                    gameover();
+                }
+                
                 break;
             case 'ArrowLeft':
                 serpiente.x -= SALTO;
+                
+                if(serpiente.x < 0) {
+                    gameover();
+                }
+                
                 break;
             case 'ArrowRight':
                 serpiente.x += SALTO;
+                
+                if(serpiente.x > canvas.width - TAMANO - 1) {
+                    gameover();
+                }
+                
                 break;
         }
 
@@ -35,6 +58,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('keydown', function(e) {
         tecla = e.code;
+        console.log(tecla);
     });
 
 });
@@ -63,4 +87,12 @@ class Fondo {
         contexto.fillStyle = this.color;
         contexto.fillRect(0, 0, canvas.width, canvas.height);
     }
+}
+
+function gameover() {
+    tecla = undefined;
+
+    clearInterval(repeticion);
+
+    alert('Has perdido');
 }
