@@ -86,6 +86,8 @@ function guardar() {
         // Mapeamos el array de registros de tipo cliente a un array de ids a secas
         // Explotamos el array para pasarlo a la función Math.max como argumentos individuales
         clienteFormulario.id = Math.max(...clientes.map(c => c.id)) + 1;
+        // Alternativa
+        // clienteFormulario.id = clientes.reduce( (acumulado, cliente) => cliente.id > acumulado ? cliente.id : acumulado, 0) + 1
     }
 
     // Añadir al array el nuevo registro
