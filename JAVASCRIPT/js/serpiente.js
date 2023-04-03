@@ -11,7 +11,7 @@ const TAMANO = 20;
 window.addEventListener('DOMContentLoaded', function() {
     canvas = document.getElementById('tablero');
     canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    canvas.height = window.innerHeight - 4;
 
     contexto = canvas.getContext('2d');
 
