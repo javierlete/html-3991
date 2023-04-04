@@ -28,15 +28,10 @@ window.addEventListener('DOMContentLoaded', function () {
 });
 
 function mostrarTodos() {
-    // Mostramos la tabla
-    tabla.style.display = 'block';
-    // Ocultamos el formulario
-    form.style.display = 'none';
+    mostrarTabla();
 
     // Vaciamos las filas de la tabla
     tbody.innerHTML = '';
-
-    let tr;
 
     // Ordenamos la tabla según id
     clientes.sort((c1, c2) => c1.id - c2.id);
@@ -44,10 +39,22 @@ function mostrarTodos() {
     // Por cada cliente...
     clientes.forEach(c => {
         // ... creamos una fila
-        tr = document.createElement('tr');
+        nuevaFila(c);
+    });
+}
 
-        // Rellenamos la fila con los datos del cliente
-        tr.innerHTML = `
+function mostrarTabla() {
+    // Mostramos la tabla
+    tabla.style.display = 'block';
+    // Ocultamos el formulario
+    form.style.display = 'none';
+}
+
+function nuevaFila(c) {
+    const tr = document.createElement('tr');
+
+    // Rellenamos la fila con los datos del cliente
+    tr.innerHTML = `
             <td>${c.id}</td>
             <td>${c.nombre}</td>
             <td>${c.apellido}</td>
@@ -56,9 +63,9 @@ function mostrarTodos() {
                 <a href="javascript:borrar(${c.id})">Borrar</a>
             </td>`;
 
-        // Agregamos la fila al tbody
-        tbody.appendChild(tr);
-    });
+    // Agregamos la fila al tbody
+    tbody.appendChild(tr);
+    return tr;
 }
 
 function buscarPorId(idModificar) {
@@ -79,6 +86,10 @@ function guardar() {
         // Quitamos el registro que tiene el mismo id que el del formulario
         // Filtramos la fila que tiene el mismo id que el formulario
         clientes = clientes.filter(c => c.id !== clienteFormulario.id);
+        // Mostrar todos los registros de nuevo
+        // Añadir al array el nuevo registro
+        clientes.push(clienteFormulario);
+        mostrarTodos();
     } else {
         // Si no tiene id, significa que es un registro nuevo
 
@@ -88,13 +99,13 @@ function guardar() {
         clienteFormulario.id = Math.max(...clientes.map(c => c.id)) + 1;
         // Alternativa
         // clienteFormulario.id = clientes.reduce( (acumulado, cliente) => cliente.id > acumulado ? cliente.id : acumulado, 0) + 1
+        // Añadir al array el nuevo registro
+        clientes.push(clienteFormulario);
+
+        nuevaFila(clienteFormulario);
+        mostrarTabla();
     }
 
-    // Añadir al array el nuevo registro
-    clientes.push(clienteFormulario);
-
-    // Mostrar todos los registros de nuevo
-    mostrarTodos();
 }
 
 function borrar(id) {
@@ -122,9 +133,13 @@ function editar(idModificar) {
     nombre.value = cliente.nombre;
     apellido.value = cliente.apellido;
 
+    mostrarFormulario();
+}
+function mostrarFormulario() {
     // Ocultamos la tabla
     tabla.style.display = 'none';
 
     // Mostramos el formulario
     form.style.display = 'block';
 }
+
