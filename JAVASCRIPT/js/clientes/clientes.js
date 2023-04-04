@@ -55,13 +55,15 @@ function nuevaFila(c) {
 
     // Rellenamos la fila con los datos del cliente
     tr.innerHTML = `
-            <td>${c.id}</td>
+            <th>${c.id}</th>
             <td>${c.nombre}</td>
             <td>${c.apellido}</td>
             <td>
                 <a href="javascript:editar(${c.id})">Editar</a>
                 <a href="javascript:borrar(${c.id})">Borrar</a>
             </td>`;
+
+    tr.dataset.id = c.id;
 
     // Agregamos la fila al tbody
     tbody.appendChild(tr);
@@ -112,8 +114,7 @@ function borrar(id) {
     // Excluimos del array el id del cliente que queremos borrar
     clientes = clientes.filter(c => c.id !== id);
 
-    // Mostrar todos los registros de nuevo
-    mostrarTodos();
+    document.querySelector(`[data-id="${id}"]`).remove();
 }
 
 function editar(idModificar) {
