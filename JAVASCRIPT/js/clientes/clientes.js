@@ -91,7 +91,9 @@ function guardar() {
         // Mostrar todos los registros de nuevo
         // Añadir al array el nuevo registro
         clientes.push(clienteFormulario);
-        mostrarTodos();
+        
+        document.querySelector(`[data-id="${clienteFormulario.id}"] td:nth-of-type(1)`).innerHTML = clienteFormulario.nombre;
+        document.querySelector(`[data-id="${clienteFormulario.id}"] td:nth-of-type(2)`).innerHTML = clienteFormulario.apellido;
     } else {
         // Si no tiene id, significa que es un registro nuevo
 
@@ -105,9 +107,9 @@ function guardar() {
         clientes.push(clienteFormulario);
 
         nuevaFila(clienteFormulario);
-        mostrarTabla();
     }
-
+    
+    mostrarTabla();
 }
 
 function borrar(id) {
