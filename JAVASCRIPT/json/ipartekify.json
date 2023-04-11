@@ -1,0 +1,8 @@
+{
+    "canciones": [
+        { "id": 1, "genero": "Rock", "artista": "Yes", "titulo": "Owner Of A Lonely Heart", "url": "https://www.youtube.com/embed/vpIduDaggVA" },
+        { "id": 2, "genero": "Rock", "artista": "Emerson, Lake & Palmer", "titulo": "Tarkus", "url": "https://www.youtube.com/embed/WKNOlDtZluU" },
+        { "id": 3, "genero": "Pop", "artista": "La Oreja de Van Gogh", "titulo": "La Reina del Pop", "url": "https://www.youtube.com/embed/wNgETv6Pn7E" },
+        { "id": 4, "genero": "Disco", "artista": "Rick Astley", "titulo": "Never Gonna Give You Up", "url": "https://www.youtube.com/embed/dQw4w9WgXcQ" }
+    ]
+}
