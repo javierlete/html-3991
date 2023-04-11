@@ -18,7 +18,7 @@ window.addEventListener('DOMContentLoaded', async function () {
     urlInput = document.getElementById('url');
 
     form = document.querySelector('form');
-    
+
     form.addEventListener('submit', guardar);
 
     await listado();
@@ -70,8 +70,21 @@ async function listado() {
     ulCanciones.innerHTML = '';
     canciones.forEach(cancion => {
         li = document.createElement('li');
-        li.innerHTML = `<a href="javascript:ver(${cancion.id})">${cancion.titulo}</a>`; // `<iframe src="${cancion.url}" title="${cancion.titulo}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;  // JSON.stringify(cancion);
-
+        li.classList.add('col');
+        li.innerHTML = //`<a href="javascript:ver(${cancion.id})">${cancion.titulo}</a>`; // `<iframe src="${cancion.url}" title="${cancion.titulo}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`;  // JSON.stringify(cancion);
+            `
+                <div class="card h-100">
+                <!--<img src="..." class="card-img-top" alt="...">-->
+                <div class="card-body">
+                    <h5 class="card-title">${cancion.titulo}</h5>
+                    <p class="card-text">${cancion.artista}</p>
+                    <a class="btn btn-primary stretched-link" href="javascript:ver(${cancion.id})">Ver</a>
+                </div>
+                <div class="card-footer">
+                    <small class="text-muted">${cancion.genero}</small>
+                </div>
+                </div>
+           `;
         ulCanciones.appendChild(li);
     });
 
@@ -83,10 +96,10 @@ async function listado() {
             <th>${cancion.id}</th>
             <td>${cancion.titulo}</td>
             <td>${cancion.artista}</td>
-            <td>${cancion.genero}</td
+            <td>${cancion.genero}</td>
             <td>
-                <a href="javascript:editar(${cancion.id})">Editar</a>
-                <a href="javascript:borrar(${cancion.id})">Borrar</a>
+                <a class="btn btn-sm btn-primary" href="javascript:editar(${cancion.id})">Editar</a>
+                <a class="btn btn-sm btn-danger" href="javascript:borrar(${cancion.id})">Borrar</a>
             </td>`;
 
         tbody.appendChild(tr);
