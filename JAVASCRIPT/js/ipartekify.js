@@ -1,6 +1,7 @@
 'use strict';
 
 const URL = 'http://localhost:3000/canciones/';
+let tabla, formulario;
 let menu;
 let administracion, reproductor;
 let vinculoAdministracion, vinculoReproductor;
@@ -18,6 +19,9 @@ window.addEventListener('DOMContentLoaded', async function () {
     vinculoReproductor = document.getElementById('vinculo-reproductor');
 
     menu = document.querySelector('body > nav');
+
+    tabla = document.querySelector('table');
+    formulario = document.querySelector('form')
 
     ulCanciones = document.getElementById('canciones');
     iframe = document.querySelector('iframe');
@@ -37,12 +41,24 @@ window.addEventListener('DOMContentLoaded', async function () {
 
     mostrarReproductor();
 
-    await listado();
+    listado();
 });
+
+function mostrarTabla() {
+    tabla.style.display = 'table';
+    formulario.style.display = 'none';
+}
+
+function mostrarFormulario() {
+    tabla.style.display = 'none';
+    formulario.style.display = 'block';
+}
 
 function mostrarAdministracion() {
     reproductor.style.display = 'none';
     administracion.style.display = 'block';
+
+    mostrarTabla();
 }
 
 function mostrarReproductor() {
@@ -97,7 +113,9 @@ async function guardar(e) {
     form.reset();
 
     mostrarAlerta('La canción se ha guardado correctamente', 'success');
-    await listado(cancionRecibida.id);
+    listado(cancionRecibida.id);
+
+    mostrarTabla();
 }
 
 async function listado(id) {
@@ -165,6 +183,8 @@ async function editar(id) {
     artistaInput.value = cancion.artista;
     generoInput.value = cancion.genero;
     urlInput.value = cancion.url;
+
+    mostrarFormulario();
 }
 
 async function borrar(id) {
@@ -174,5 +194,7 @@ async function borrar(id) {
 
     console.log(respuesta);
 
-    await listado();
+    listado();
+
+    mostrarTabla();
 }
