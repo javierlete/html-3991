@@ -45,6 +45,8 @@ function mostrarAdministracion() {
 function mostrarReproductor() {
     reproductor.style.display = 'block';
     administracion.style.display = 'none';
+
+    listado();
 }
 
 async function guardar(e) {
@@ -78,14 +80,14 @@ async function guardar(e) {
         headers: { 'Content-Type': 'application/json' },
     });
 
-    console.log(respuesta);
+    const cancionRecibida = await respuesta.json();
 
     form.reset();
 
-    await listado();
+    await listado(cancionRecibida.id);
 }
 
-async function listado() {
+async function listado(id) {
     const respuesta = await fetch(URL);
     const canciones = await respuesta.json();
 
@@ -115,6 +117,11 @@ async function listado() {
     tbody.innerHTML = '';
     canciones.forEach(cancion => {
         tr = document.createElement('tr');
+        
+        if (id === cancion.id) {
+            tr.className = 'table-success';
+        }
+
         tr.innerHTML = `
             <th>${cancion.id}</th>
             <td>${cancion.titulo}</td>
