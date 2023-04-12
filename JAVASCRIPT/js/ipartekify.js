@@ -69,12 +69,17 @@ function mostrarReproductor() {
 }
 
 function mostrarAlerta(mensaje, nivel) {
-    const alerta = `<div class="alert alert-${nivel} alert-dismissible fade show" role="alert">
+    const alerta = `<div class="mb-0 alert alert-${nivel} alert-dismissible fade show" style="transition: opacity 1s linear" role="alert">
     ${mensaje}
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
 </div>`;
 
+    document.querySelector('.alert')?.remove();
     menu.insertAdjacentHTML("afterend", alerta);
+
+    const alert = bootstrap.Alert.getOrCreateInstance('.alert')
+    
+    setTimeout(() => alert?.close(), 5000);
 }
 
 async function guardar(e) {
