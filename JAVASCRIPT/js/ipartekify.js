@@ -1,6 +1,7 @@
 'use strict';
 
 const URL = 'http://localhost:3000/canciones/';
+let menu;
 let administracion, reproductor;
 let vinculoAdministracion, vinculoReproductor;
 let ulCanciones;
@@ -15,6 +16,8 @@ window.addEventListener('DOMContentLoaded', async function () {
 
     vinculoAdministracion = document.getElementById('vinculo-administracion');
     vinculoReproductor = document.getElementById('vinculo-reproductor');
+
+    menu = document.querySelector('body > nav');
 
     ulCanciones = document.getElementById('canciones');
     iframe = document.querySelector('iframe');
@@ -47,6 +50,15 @@ function mostrarReproductor() {
     administracion.style.display = 'none';
 
     listado();
+}
+
+function mostrarAlerta(mensaje, nivel) {
+    const alerta = `<div class="alert alert-${nivel} alert-dismissible fade show" role="alert">
+    ${mensaje}
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>`;
+
+    menu.insertAdjacentHTML("afterend", alerta);
 }
 
 async function guardar(e) {
@@ -84,6 +96,7 @@ async function guardar(e) {
 
     form.reset();
 
+    mostrarAlerta('La canción se ha añadido correctamente', 'success');
     await listado(cancionRecibida.id);
 }
 
@@ -117,7 +130,7 @@ async function listado(id) {
     tbody.innerHTML = '';
     canciones.forEach(cancion => {
         tr = document.createElement('tr');
-        
+
         if (id === cancion.id) {
             tr.className = 'table-success';
         }
