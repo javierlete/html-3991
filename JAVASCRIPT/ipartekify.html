@@ -14,72 +14,101 @@
     <script src="js/ipartekify.js"></script>
 </head>
 
-<body class="container">
-    <h1>Ipartekify</h1>
-
-    <ul id="canciones" class="list-unstyled row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-6 g-4">
-    </ul>
-
-    <div class="ratio ratio-16x9">
-        <iframe src="" title="" frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe>
-    </div>
-
-    <table class="table table-hover table-bordered table-striped">
-        <caption>Listado de canciones</caption>
-
-        <thead class="table-dark">
-            <tr>
-                <th>Id</th>
-                <th>Título</th>
-                <th>Artista</th>
-                <th>Género</th>
-                <th>OPCIONES</th>
-            </tr>
-        </thead>
-        <tbody>
-
-        </tbody>
-    </table>
-
-    <form>
-        <div class="row mb-3">
-            <label for="id" class="col-sm-2 col-form-label">Id</label>
-            <div class="col-sm">
-                <input type="number" readonly id="id" placeholder="Id" class="form-control">
+<body>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top mb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand" id="vinculo-reproductor" href="#">Ipartekify</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" id="vinculo-administracion" href="#">Administración</a>
+                    </li>
+                </ul>
             </div>
         </div>
-        <div class="row mb-3">
-            <label for="titulo" class="col-sm-2 col-form-label">Título</label>
-            <div class="col-sm">
-                <input class="form-control" type="text" id="titulo" placeholder="Título">
-            </div>
+    </nav>
+
+    <main class="container mb-5 pt-2 pb-5">
+        <div id="reproductor">
+            <ul id="canciones"
+                class="list-unstyled row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-6 g-4">
+            </ul>
+
+            <iframe class="w-100 fixed-bottom mb-5" height="50" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen></iframe>
         </div>
-        <div class="row mb-3">
-            <label for="artista" class="col-sm-2 col-form-label">Artista</label>
-            <div class="col-sm">
-                <input class="form-control" type="text" id="artista" placeholder="Artista">
-            </div>
+
+        <div id="administracion">
+            <table class="table table-hover table-bordered table-striped">
+                <caption>Listado de canciones</caption>
+
+                <thead class="table-dark">
+                    <tr>
+                        <th>Id</th>
+                        <th>Título</th>
+                        <th>Artista</th>
+                        <th>Género</th>
+                        <th>OPCIONES</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+
+            <form>
+                <div class="row mb-3">
+                    <label for="id" class="col-sm-2 col-form-label">Id</label>
+                    <div class="col-sm">
+                        <input type="number" readonly id="id" placeholder="Id" class="form-control">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="titulo" class="col-sm-2 col-form-label">Título</label>
+                    <div class="col-sm">
+                        <input class="form-control" type="text" id="titulo" placeholder="Título">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="artista" class="col-sm-2 col-form-label">Artista</label>
+                    <div class="col-sm">
+                        <input class="form-control" type="text" id="artista" placeholder="Artista">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="genero" class="col-sm-2 col-form-label">Género</label>
+                    <div class="col-sm">
+                        <input class="form-control" type="text" id="genero" placeholder="Género">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label for="url" class="col-sm-2 col-form-label">URL</label>
+                    <div class="col-sm">
+                        <input class="form-control" type="url" id="url" placeholder="URL">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="offset-sm-2 col-sm">
+                        <button class="btn btn-primary">Guardar</button>
+                    </div>
+                </div>
+            </form>
         </div>
-        <div class="row mb-3">
-            <label for="genero" class="col-sm-2 col-form-label">Género</label>
-            <div class="col-sm">
-                <input class="form-control" type="text" id="genero" placeholder="Género">
-            </div>
-        </div>
-        <div class="row mb-3">
-            <label for="url" class="col-sm-2 col-form-label">URL</label>
-            <div class="col-sm">
-                <input class="form-control" type="url" id="url" placeholder="URL">
-            </div>
-        </div>
-        <div class="row mb-3">
-            <div class="offset-sm-2 col-sm">
-                <button class="btn btn-primary">Guardar</button>
-            </div>
-        </div>
-    </form>
+    </main>
+    <footer class="p-3 text-bg-dark fixed-bottom">
+        &copy;2023 Javier Lete
+    </footer>
 </body>
 
 </html>

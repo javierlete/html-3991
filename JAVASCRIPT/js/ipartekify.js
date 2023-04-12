@@ -1,6 +1,8 @@
 'use strict';
 
 const URL = 'http://localhost:3000/canciones/';
+let administracion, reproductor;
+let vinculoAdministracion, vinculoReproductor;
 let ulCanciones;
 let form;
 let iframe;
@@ -8,6 +10,12 @@ let tbody;
 let idInput, tituloInput, artistaInput, generoInput, urlInput;
 
 window.addEventListener('DOMContentLoaded', async function () {
+    administracion = document.getElementById('administracion');
+    reproductor = document.getElementById('reproductor');
+
+    vinculoAdministracion = document.getElementById('vinculo-administracion');
+    vinculoReproductor = document.getElementById('vinculo-reproductor');
+
     ulCanciones = document.getElementById('canciones');
     iframe = document.querySelector('iframe');
     tbody = document.querySelector('tbody');
@@ -21,8 +29,23 @@ window.addEventListener('DOMContentLoaded', async function () {
 
     form.addEventListener('submit', guardar);
 
+    vinculoAdministracion.addEventListener('click', mostrarAdministracion);
+    vinculoReproductor.addEventListener('click', mostrarReproductor);
+
+    mostrarReproductor();
+
     await listado();
 });
+
+function mostrarAdministracion() {
+    reproductor.style.display = 'none';
+    administracion.style.display = 'block';
+}
+
+function mostrarReproductor() {
+    reproductor.style.display = 'block';
+    administracion.style.display = 'none';
+}
 
 async function guardar(e) {
     e.preventDefault();
