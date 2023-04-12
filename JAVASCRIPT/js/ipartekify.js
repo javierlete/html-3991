@@ -96,7 +96,7 @@ async function guardar(e) {
 
     form.reset();
 
-    mostrarAlerta('La canción se ha añadido correctamente', 'success');
+    mostrarAlerta('La canción se ha guardado correctamente', 'success');
     await listado(cancionRecibida.id);
 }
 
