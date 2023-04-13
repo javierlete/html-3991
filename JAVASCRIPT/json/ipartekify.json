@@ -27,6 +27,13 @@
       "artista": "Rick Astley",
       "titulo": "Never Gonna Give You Up",
       "url": "https://www.youtube.com/embed/dQw4w9WgXcQ"
+    },
+    {
+      "id": 5,
+      "genero": "Rock",
+      "artista": "Sonata Artica",
+      "titulo": "The Wind Beneath My Wings",
+      "url": "https://www.youtube.com/embed/kzapwP5Z9kA"
     }
   ]
 }
