@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tareas</title>
+</head>
+
+<body>
+    <header>
+        <h1>Tareas</h1>
+    </header>
+    <form>
+        <label for="busqueda">Búsqueda</label>
+        <input type="search" id="busqueda">
+    </form>
+    <section id="predeterminados">
+        <h2>Predeterminados</h2>
+        <ul>
+            <li>Mi día</li>
+            <li>Importante</li>
+            <li>Planeado</li>
+            <li>Asignadas a mi usuario</li>
+            <li>Correo electrónico marcado</li>
+            <li>Tareas</li>
+        </ul>
+    </section>
+
+    <section id="usuario">
+        <h2>Usuario</h2>
+        <ul>
+            <li>
+                Grupo 1
+                <ul>
+                    <li>Lista 1</li>
+                    <li>Lista 2</li>
+                </ul>
+            </li>
+            <li>
+                Grupo 2
+                <ul>
+                    <li>Lista 1</li>
+                    <li>Lista 2</li>
+                </ul>
+            </li>
+            <li>
+                Grupo 3
+                <ul>
+                    <li>Lista 1</li>
+                    <li>Lista 2</li>
+                    <li>Lista 3</li>
+                </ul>
+            </li>
+        </ul>
+
+        <form>
+            <fieldset>
+                <legend>Creación lista</legend>
+                <label for="nombre-lista">Lista</label>
+                <input type="text" id="nombre-lista" placeholder="Nueva lista">
+            </fieldset>
+        </form>
+        <button type="button">Crear grupo</button>
+        <form>
+            <fieldset>
+                <legend>Creación grupo</legend>
+                <label for="nombre-grupo">Grupo</label>
+                <input type="text" id="nombre-grupo" placeholder="Grupo sin título">
+            </fieldset>
+        </form>
+    </section>
+    <main>
+        <header>
+            <h2>Mi día</h2>
+            <label for="ordenar">Ordenar</label>
+            <select id="ordenar">
+                <option>Importancia</option>
+                <option>Fecha de vencimiento</option>
+                <option>Alfabéticamente</option>
+                <option>Fecha de creación</option>
+            </select>
+        </header>
+        <form>
+            <fieldset>
+                <legend>Creación de tarea</legend>
+                <div>
+                    <input type="text" id="tarea" placeholder="Agregar una tarea">
+                </div>
+                <div>
+                    <label for="vencimiento">Vencimiento</label>
+                    <select id="vencimiento">
+                        <option>Hoy</option>
+                        <option>Mañana</option>
+                        <option>Semana próxima</option>
+                        <option>Elegir una fecha</option>
+                        <option>Quitar fecha de vencimiento</option>
+                    </select>
+                </div>
+
+                <div id="vencimiento-form">
+                    <div>
+                        <label for="fecha-vencimiento">Fecha de vencimiento</label>
+                        <input type="date" id="fecha-vencimiento">
+                    </div>
+                    <button type="button">Guardar</button>
+                </div>
+
+                <div>
+                    <label for="aviso">Aviso</label>
+                    <select id="aviso">
+                        <option>Más tarde hoy</option>
+                        <option>Mañana</option>
+                        <option>Semana próxima</option>
+                        <option>Elegir una fecha y una hora
+                        </option>
+                        <option>Quitar aviso</option>
+                    </select>
+                </div>
+
+                <div id="aviso-form">
+                    <div>
+                        <label for="fecha-aviso">Fecha de aviso</label>
+                        <input type="date" id="fecha-aviso">
+                    </div>
+
+                    <div>
+                        <label for="hora-aviso">Hora del aviso</label>
+                        <select id="hora-aviso">
+                            <option>Mañana</option>
+                            <option>Mediodía</option>
+                            <option>Tarde</option>
+                            <option>A última hora de la tarde</option>
+                        </select>
+                    </div>
+
+                    <button type="button">Guardar</button>
+                </div>
+
+                <div>
+                    <label for="repeticiones">Repeticiones</label>
+                    <select id="repeticiones" title="Repeticiones">
+                        <option>Diariamente</option>
+                        <option>Días laborables</option>
+                        <option>Semanalmente</option>
+                        <option>Mensualmente</option>
+                        <option>Anualmente</option>
+                        <option>Personalizado</option>
+                        <option>No repetir nunca</option>
+                    </select>
+                </div>
+
+                <div id="repeticiones-form">
+                    <div>
+                        <label for="numero-repeticion">Número de repeticiones</label>
+                        <input type="number" id="numero-repeticion">
+                    </div>
+
+                    <div>
+                        <label for="periodo">Periodo</label>
+                        <select id="periodo">
+                            <option>días</option>
+                            <option>semanas</option>
+                            <option>meses</option>
+                            <option>años</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label for="dias-semana">Días de la semana</label>
+                        <select multiple id="dias-semana">
+                            <option>lu</option>
+                            <option>ma</option>
+                            <option>mi</option>
+                            <option>ju</option>
+                            <option>vi</option>
+                            <option>sá</option>
+                            <option>do</option>
+                        </select>
+                    </div>
+                    <button type="button">Guardar</button>
+                </div>
+
+                <button type="submit">Agregar</button>
+            </fieldset>
+        </form>
+
+        <ul id="tareas-pendientes">
+            <li>
+                <input type="checkbox" title="Finalizar">
+                <span>Tarea 1</span>
+                <input type="checkbox" title="Importante">
+            </li>
+            <li>
+                <input type="checkbox" title="Finalizar">
+                <span>Tarea 2</span>
+                <input type="checkbox" title="Importante">
+            </li>
+        </ul>
+        <label>Completadas
+            <input type="checkbox" id="completadas">
+        </label>
+        <ul id="tareas-completadas">
+            <li>
+                <input type="checkbox" checked title="Finalizar">
+                <del>Tarea 1</del>
+                <input type="checkbox" title="Importante">
+            </li>
+            <li>
+                <input type="checkbox" checked title="Finalizar">
+                <del>Tarea 2</del>
+                <input type="checkbox" title="Importante">
+            </li>
+        </ul>
+    </main>
+</body>
+
+</html>
