@@ -5,214 +5,452 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tareas</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
 </head>
 
-<body>
-    <header>
+<body style="font-size: 80%">
+    <header class="visually-hidden">
         <h1>Tareas</h1>
     </header>
-    <form>
-        <label for="busqueda">Búsqueda</label>
-        <input type="search" id="busqueda">
+    <form class="text-bg-primary d-flex justify-content-center py-1">
+        <label class="visually-hidden" for="busqueda">Búsqueda</label>
+        <input class="form-control w-auto" type="search" id="busqueda">
     </form>
-    <section id="predeterminados">
-        <h2>Predeterminados</h2>
-        <ul>
-            <li>Mi día</li>
-            <li>Importante</li>
-            <li>Planeado</li>
-            <li>Asignadas a mi usuario</li>
-            <li>Correo electrónico marcado</li>
-            <li>Tareas</li>
-        </ul>
-    </section>
+    <div class="container-fluid">
+        <div class="row">
+            <div id="lateral" class="pt-4 col-sm-5 col-md-4 col-lg-3">
+                <section id="predeterminados" class="border-bottom">
+                    <h2 class="visually-hidden">Predeterminados</h2>
+                    <ul class="nav flex-column">
+                        <li class="nav-item p-1">
+                            <a class="nav-link text-dark text-dark" href="">
+                                <i class="me-3 bi bi-brightness-high"></i>
+                                Mi día
+                            </a>
+                        </li>
+                        <li class="nav-item p-1">
+                            <a class="nav-link text-dark" href="">
+                                <i class="me-3 bi bi-star"></i>
+                                Importante
+                            </a>
+                        </li>
+                        <li class="nav-item p-1">
+                            <a class="nav-link text-dark" href="">
+                                <i class="me-3 bi bi-calendar3"></i>
+                                Planeado
+                            </a>
+                        </li>
+                        <li class="nav-item p-1">
+                            <a class="nav-link text-dark" href="">
+                                <i class="me-3 bi bi-person"></i>
+                                Asignadas 
+                                a mi
+                                usuario</a>
+                        </li>
+                        <li class="nav-item p-1">
+                            <a class="nav-link text-dark" href="">
+                                <i class="me-3 bi bi-house-door"></i>
+                                Tareas
+                            </a>
+                        </li>
+                    </ul>
+                </section>
 
-    <section id="usuario">
-        <h2>Usuario</h2>
-        <ul>
-            <li>
-                Grupo 1
-                <ul>
-                    <li>Lista 1</li>
-                    <li>Lista 2</li>
+                <section id="usuario">
+                    <h2 class="visually-hidden">Usuario</h2>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="">Grupo 1</a>
+                            <ul class="ms-4 nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href=""><i class="bi bi-list-task"></i> Lista 1</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href=""><i class="bi bi-list-task"></i> Lista 2</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="">Grupo 2</a>
+                            <ul class="ms-4 nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href=""><i class="bi bi-list-task"></i> Lista 1</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href=""><i class="bi bi-list-task"></i> Lista 2</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="">Grupo 3</a>
+                            <ul class="ms-4 nav flex-column">
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href=""><i class="bi bi-list-task"></i> Lista 1</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href=""><i class="bi bi-list-task"></i> Lista 2</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href=""><i class="bi bi-list-task"></i> Lista 3</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <div class="d-flex">
+                        <form>
+                            <fieldset class="d-flex align-items-center">
+                                <legend class="visually-hidden">Creación lista</legend>
+                                <label for="nombre-lista">
+                                    <span class="visually-hidden">Lista</span>
+                                    <i class="bi bi-plus-lg"></i>
+                                </label>
+
+                                <input class="ms-3 form-control" type="text" id="nombre-lista"
+                                    placeholder="Nueva lista">
+                            </fieldset>
+                        </form>
+                        <button class="btn" type="button">
+                            <span class="visually-hidden">Crear grupo</span>
+                            <i class="bi bi-folder-plus"></i>
+                        </button>
+                    </div>
+                    <form>
+                        <fieldset class="d-flex align-items-center">
+                            <legend class="visually-hidden">Creación grupo</legend>
+                            <label for="nombre-grupo">
+                                <span class="visually-hidden">Grupo</span>
+                                <i class="bi bi-folder2"></i>
+                            </label>
+                            <input class="ms-3 form-control" type="text" id="nombre-grupo"
+                                placeholder="Grupo sin título">
+                        </fieldset>
+                    </form>
+                </section>
+            </div>
+
+            <main class="col-sm bg-light pt-4 border-start ps-4">
+                <header class="d-flex text-primary">
+                    <h2 class="me-auto"><i class="bi bi-sun"></i> Mi día</h2>
+                    <div class="dropdown">
+                        <a class="btn text-primary" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="bi bi-arrow-down-up"></i> Ordenar
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <h6 class="dropdown-header text-center">Ordenar por</h6>
+                            </li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <i class="bi bi-star"></i>
+                                    Importancia
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <i class="bi bi-calendar3"></i>
+                                    Fecha de vencimiento
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <i class="bi bi-sun"></i>
+                                    Agregados a mi día
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <i class="bi bi-arrow-down-up"></i>
+                                    Alfabéticamente
+                                </a>
+                            </li>
+                            <li>
+                                <a class="dropdown-item" href="#">
+                                    <i class="bi bi-calendar-plus"></i>
+                                    Fecha de creación
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </header>
+                <form class="card border-0 shadow">
+                    <fieldset>
+                        <legend class="visually-hidden">Creación de tarea</legend>
+                        <div class="card-body">
+                            <p class="card-text d-flex">
+                                <i class="bi bi-plus-lg"></i>
+                                <input class="form-control border-0" type="text" id="tarea"
+                                    placeholder="Agregar una tarea">
+                            </p>
+                        </div>
+
+                        <div class="card-footer d-flex">
+                            <div id="vencimiento" class="dropdown">
+                                <a class="btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span class="visually-hidden">Vencimiento</span>
+                                    <i class="bi bi-calendar3"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <h6 class="dropdown-header text-center">Vencimiento</h6>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <a href="" class="dropdown-item">
+                                            <i class="bi bi-calendar2-day"></i>
+                                            Hoy
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="dropdown-item">
+                                            <i class="bi bi-calendar3-event"></i>
+                                            Mañana
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="dropdown-item">
+                                            <i class="bi bi-calendar-week"></i>
+                                            Semana próxima
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li class="dropdown-item">
+                                        <label for="fecha-vencimiento">
+                                            <i class="bi bi-calendar2-date"></i>
+                                            Elegir una fecha
+                                        </label>
+                                        <input class="my-2 form-control" type="date" id="fecha-vencimiento">
+                                    </li>
+                                    <li>
+                                        <a href="" class="dropdown-item text-danger">
+                                            <i class="bi bi-trash"></i>
+                                            Quitar fecha de vencimiento
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div id="aviso" class="dropdown">
+                                <a class="btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span class="visually-hidden">Aviso</span>
+                                    <i class="bi bi-bell"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <h6 class="dropdown-header text-center">Aviso</h6>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <a href="" class="dropdown-item">
+                                            <i class="bi bi-calendar2-day"></i>
+                                            Más tarde hoy
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="dropdown-item">
+                                            <i class="bi bi-calendar3-event"></i>
+                                            Mañana
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="dropdown-item">
+                                            <i class="bi bi-calendar-week"></i>
+                                            Semana próxima
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li class="dropdown-item">
+                                        <div id="aviso-form">
+
+                                            <div>
+                                                <label for="fecha-aviso">Fecha de aviso</label>
+                                                <input class="form-control" type="date" id="fecha-aviso">
+                                            </div>
+
+                                            <div>
+                                                <label for="hora-aviso">Hora del aviso</label>
+                                                <select class="form-select" id="hora-aviso">
+                                                    <option>Mañana</option>
+                                                    <option>Mediodía</option>
+                                                    <option>Tarde</option>
+                                                    <option>A última hora de la tarde</option>
+                                                </select>
+                                            </div>
+
+                                    </li>
+                                    <li>
+                                        <a href="" class="dropdown-item text-danger">
+                                            <i class="bi bi-trash"></i>
+                                            Quitar aviso
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div id="repeticiones" class="dropdown">
+                                <a class="btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <span class="visually-hidden">Repeticiones</span>
+                                    <i class="bi bi-repeat"></i>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <h6 class="dropdown-header text-center">Repetir</h6>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li>
+                                        <a href="" class="dropdown-item">
+                                            <i class="bi bi-calendar2-day"></i>
+                                            Diariamente
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="dropdown-item">
+                                            <i class="bi bi-calendar3-event"></i>
+                                            Días laborables
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="dropdown-item">
+                                            <i class="bi bi-calendar-week"></i>
+                                            Semanalmente
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="dropdown-item">
+                                            <i class="bi bi-calendar-month"></i>
+                                            Mensualmente
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="" class="dropdown-item">
+                                            <i class="bi bi-calendar"></i>
+                                            Anualmente
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+                                    <li class="dropdown-item">
+                                        <div>
+                                            <label for="numero-repeticion">Número de repeticiones</label>
+                                            <input class="form-control" type="number" id="numero-repeticion">
+                                        </div>
+
+                                        <div>
+                                            <label for="periodo">Periodo</label>
+                                            <select class="form-select" id="periodo">
+                                                <option>días</option>
+                                                <option>semanas</option>
+                                                <option>meses</option>
+                                                <option>años</option>
+                                            </select>
+                                        </div>
+
+                                        <div>
+                                            <label for="dias-semana">Días de la semana</label>
+                                            <select class="form-select" multiple id="dias-semana">
+                                                <option>lu</option>
+                                                <option>ma</option>
+                                                <option>mi</option>
+                                                <option>ju</option>
+                                                <option>vi</option>
+                                                <option>sá</option>
+                                                <option>do</option>
+                                            </select>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="" class="dropdown-item text-danger">
+                                            <i class="bi bi-trash"></i>
+                                            No repetir nunca
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <button class="ms-auto btn btn-outline-primary" type="submit">Agregar</button>
+                        </div>
+                    </fieldset>
+                </form>
+
+                <ul class="row row-cols-1 list-unstyled" id="tareas-pendientes">
+                    <li class="col mt-2">
+                        <div class="card border-0 shadow">
+                            <div class="card-body d-flex">
+                                <input class="form-check" type="checkbox" title="Finalizar">
+                                <span class="ms-3">Tarea 1</span>
+                                <input class="ms-auto form-check" type="checkbox" title="Importante">
+                            </div>
+                        </div>
+                    </li>
+                    <li class="col mt-2">
+                        <div class="card border-0 shadow">
+                            <div class="card-body d-flex">
+                                <input class="form-check" type="checkbox" title="Finalizar">
+                                <span class="ms-3">Tarea 2</span>
+                                <input class="ms-auto form-check" type="checkbox" title="Importante">
+                            </div>
+                        </div>
+                    </li>
                 </ul>
-            </li>
-            <li>
-                Grupo 2
-                <ul>
-                    <li>Lista 1</li>
-                    <li>Lista 2</li>
-                </ul>
-            </li>
-            <li>
-                Grupo 3
-                <ul>
-                    <li>Lista 1</li>
-                    <li>Lista 2</li>
-                    <li>Lista 3</li>
-                </ul>
-            </li>
-        </ul>
 
-        <form>
-            <fieldset>
-                <legend>Creación lista</legend>
-                <label for="nombre-lista">Lista</label>
-                <input type="text" id="nombre-lista" placeholder="Nueva lista">
-            </fieldset>
-        </form>
-        <button type="button">Crear grupo</button>
-        <form>
-            <fieldset>
-                <legend>Creación grupo</legend>
-                <label for="nombre-grupo">Grupo</label>
-                <input type="text" id="nombre-grupo" placeholder="Grupo sin título">
-            </fieldset>
-        </form>
-    </section>
-    <main>
-        <header>
-            <h2>Mi día</h2>
-            <label for="ordenar">Ordenar</label>
-            <select id="ordenar">
-                <option>Importancia</option>
-                <option>Fecha de vencimiento</option>
-                <option>Alfabéticamente</option>
-                <option>Fecha de creación</option>
-            </select>
-        </header>
-        <form>
-            <fieldset>
-                <legend>Creación de tarea</legend>
-                <div>
-                    <input type="text" id="tarea" placeholder="Agregar una tarea">
-                </div>
-                <div>
-                    <label for="vencimiento">Vencimiento</label>
-                    <select id="vencimiento">
-                        <option>Hoy</option>
-                        <option>Mañana</option>
-                        <option>Semana próxima</option>
-                        <option>Elegir una fecha</option>
-                        <option>Quitar fecha de vencimiento</option>
-                    </select>
-                </div>
-
-                <div id="vencimiento-form">
-                    <div>
-                        <label for="fecha-vencimiento">Fecha de vencimiento</label>
-                        <input type="date" id="fecha-vencimiento">
+                <div class="accordion" id="accordionExample">
+                    <div class="accordion-item bg-light border-0">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button bg-light" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Completadas
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
+                            <div class="accordion-body p-0">
+                                <ul class="row row-cols-1 list-unstyled" id="tareas-pendientes">
+                                    <li class="col mt-2">
+                                        <div class="card border-0 shadow">
+                                            <div class="card-body d-flex">
+                                                <input class="form-check" checked type="checkbox" title="Finalizar">
+                                                <del class="ms-3">Tarea 1</del>
+                                                <input class="ms-auto form-check" type="checkbox" title="Importante">
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="col mt-2">
+                                        <div class="card border-0 shadow">
+                                            <div class="card-body d-flex">
+                                                <input class="form-check" checked type="checkbox" title="Finalizar">
+                                                <del class="ms-3">Tarea 2</del>
+                                                <input class="ms-auto form-check" type="checkbox" title="Importante">
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
-                    <button type="button">Guardar</button>
                 </div>
-
-                <div>
-                    <label for="aviso">Aviso</label>
-                    <select id="aviso">
-                        <option>Más tarde hoy</option>
-                        <option>Mañana</option>
-                        <option>Semana próxima</option>
-                        <option>Elegir una fecha y una hora
-                        </option>
-                        <option>Quitar aviso</option>
-                    </select>
-                </div>
-
-                <div id="aviso-form">
-                    <div>
-                        <label for="fecha-aviso">Fecha de aviso</label>
-                        <input type="date" id="fecha-aviso">
-                    </div>
-
-                    <div>
-                        <label for="hora-aviso">Hora del aviso</label>
-                        <select id="hora-aviso">
-                            <option>Mañana</option>
-                            <option>Mediodía</option>
-                            <option>Tarde</option>
-                            <option>A última hora de la tarde</option>
-                        </select>
-                    </div>
-
-                    <button type="button">Guardar</button>
-                </div>
-
-                <div>
-                    <label for="repeticiones">Repeticiones</label>
-                    <select id="repeticiones" title="Repeticiones">
-                        <option>Diariamente</option>
-                        <option>Días laborables</option>
-                        <option>Semanalmente</option>
-                        <option>Mensualmente</option>
-                        <option>Anualmente</option>
-                        <option>Personalizado</option>
-                        <option>No repetir nunca</option>
-                    </select>
-                </div>
-
-                <div id="repeticiones-form">
-                    <div>
-                        <label for="numero-repeticion">Número de repeticiones</label>
-                        <input type="number" id="numero-repeticion">
-                    </div>
-
-                    <div>
-                        <label for="periodo">Periodo</label>
-                        <select id="periodo">
-                            <option>días</option>
-                            <option>semanas</option>
-                            <option>meses</option>
-                            <option>años</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label for="dias-semana">Días de la semana</label>
-                        <select multiple id="dias-semana">
-                            <option>lu</option>
-                            <option>ma</option>
-                            <option>mi</option>
-                            <option>ju</option>
-                            <option>vi</option>
-                            <option>sá</option>
-                            <option>do</option>
-                        </select>
-                    </div>
-                    <button type="button">Guardar</button>
-                </div>
-
-                <button type="submit">Agregar</button>
-            </fieldset>
-        </form>
-
-        <ul id="tareas-pendientes">
-            <li>
-                <input type="checkbox" title="Finalizar">
-                <span>Tarea 1</span>
-                <input type="checkbox" title="Importante">
-            </li>
-            <li>
-                <input type="checkbox" title="Finalizar">
-                <span>Tarea 2</span>
-                <input type="checkbox" title="Importante">
-            </li>
-        </ul>
-        <label>Completadas
-            <input type="checkbox" id="completadas">
-        </label>
-        <ul id="tareas-completadas">
-            <li>
-                <input type="checkbox" checked title="Finalizar">
-                <del>Tarea 1</del>
-                <input type="checkbox" title="Importante">
-            </li>
-            <li>
-                <input type="checkbox" checked title="Finalizar">
-                <del>Tarea 2</del>
-                <input type="checkbox" title="Importante">
-            </li>
-        </ul>
-    </main>
+            </main>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
