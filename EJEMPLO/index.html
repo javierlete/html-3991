@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tareas</title>
+    <link rel="stylesheet" href="css/index.css">
 </head>
 
 <body>
@@ -73,115 +74,175 @@
     <main>
         <header>
             <h2>Mi día</h2>
-            <label for="ordenar">Ordenar</label>
-            <select id="ordenar">
-                <option>Importancia</option>
-                <option>Fecha de vencimiento</option>
-                <option>Alfabéticamente</option>
-                <option>Fecha de creación</option>
-            </select>
+            <div class="desplegable">
+                <a href="#ordenar">Ordenar</a>
+                <div class="cuerpo-desplegable" id="ordenar">
+                    <header>Ordenar por</header>
+                    <ul>
+                        <li>
+                            <a href="#">Importancia</a>
+                        </li>
+                        <li>
+                            <a href="#">Fecha de vencimiento</a>
+                        </li>
+                        <li>
+                            <a href="#">Alfabéticamente</a>
+                        </li>
+                        <li>
+                            <a href="#">Fecha de creación</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </header>
         <form>
             <fieldset>
                 <legend>Creación de tarea</legend>
-                <div>
-                    <input type="text" id="tarea" placeholder="Agregar una tarea">
-                </div>
-                <div>
-                    <label for="vencimiento">Vencimiento</label>
-                    <select id="vencimiento">
-                        <option>Hoy</option>
-                        <option>Mañana</option>
-                        <option>Semana próxima</option>
-                        <option>Elegir una fecha</option>
-                        <option>Quitar fecha de vencimiento</option>
-                    </select>
-                </div>
 
-                <div id="vencimiento-form">
-                    <div>
-                        <label for="fecha-vencimiento">Fecha de vencimiento</label>
-                        <input type="date" id="fecha-vencimiento">
-                    </div>
-                    <button type="button">Guardar</button>
-                </div>
+                <input type="text" id="tarea" placeholder="Agregar una tarea">
 
                 <div>
-                    <label for="aviso">Aviso</label>
-                    <select id="aviso">
-                        <option>Más tarde hoy</option>
-                        <option>Mañana</option>
-                        <option>Semana próxima</option>
-                        <option>Elegir una fecha y una hora
-                        </option>
-                        <option>Quitar aviso</option>
-                    </select>
+                    <div class="desplegable">
+                        <a href="#vencimiento">Vencimiento</a>
+                        <div class="cuerpo-desplegable" id="vencimiento">
+                            <header>Vencimiento</header>
+                            <ul>
+                                <li>
+                                    <a href="#">Hoy</a>
+                                </li>
+                                <li>
+                                    <a href="#">Mañana</a>
+                                </li>
+                                <li>
+                                    <a href="#">Semana próxima</a>
+                                </li>
+                                <li>
+                                    <a href="#vencimiento-form">Elegir una fecha</a>
+
+                                    <div class="personalizado" id="vencimiento-form">
+                                        <div>
+                                            <label for="fecha-vencimiento">Fecha de vencimiento</label>
+                                            <input type="date" id="fecha-vencimiento">
+                                        </div>
+                                        <button type="button">Guardar</button>
+                                    </div>
+                                </li>
+                                <li class="quitar">
+                                    <a href="#">Quitar fecha de vencimiento</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="desplegable">
+                        <a href="#aviso">Aviso</a>
+                        <div class="cuerpo-desplegable" id="aviso">
+                            <header>Aviso</header>
+                            <ul>
+                                <li>
+                                    <a href="#">Más tarde hoy</a>
+                                </li>
+                                <li>
+                                    <a href="#">Mañana</a>
+                                </li>
+                                <li>
+                                    <a href="#">Semana próxima</a>
+                                </li>
+                                <li>
+                                    <a href="#aviso-form">Elegir una fecha y una hora</a>
+
+                                    <div class="personalizado" id="aviso-form">
+                                        <div>
+                                            <label for="fecha-aviso">Fecha de aviso</label>
+                                            <input type="date" id="fecha-aviso">
+                                        </div>
+
+                                        <div>
+                                            <label for="hora-aviso">Hora del aviso</label>
+                                            <select id="hora-aviso">
+                                                <option>Mañana</option>
+                                                <option>Mediodía</option>
+                                                <option>Tarde</option>
+                                                <option>A última hora de la tarde</option>
+                                            </select>
+                                        </div>
+
+                                        <button type="button">Guardar</button>
+                                    </div>
+                                </li>
+                                <li class="quitar">
+                                    <a href="#">Quitar aviso</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="desplegable">
+                        <a href="#repeticiones">Repeticiones</a>
+                        <div class="cuerpo-desplegable" id="repeticiones">
+                            <header>Repeticiones</header>
+                            <ul>
+                                <li>
+                                    <a href="#">Diariamente</a>
+                                </li>
+                                <li>
+                                    <a href="#">Días laborables</a>
+                                </li>
+                                <li>
+                                    <a href="#">Semanalmente</a>
+                                </li>
+                                <li>
+                                    <a href="#">Mensualmente</a>
+                                </li>
+                                <li>
+                                    <a href="#">Anualmente</a>
+                                </li>
+                                <li>
+                                    <a href="#repeticiones-form">Personalizado</a>
+
+                                    <div class="personalizado" id="repeticiones-form">
+                                        <div>
+                                            <label for="numero-repeticion">Número de repeticiones</label>
+                                            <input type="number" id="numero-repeticion">
+                                        </div>
+
+                                        <div>
+                                            <label for="periodo">Periodo</label>
+                                            <select id="periodo">
+                                                <option>días</option>
+                                                <option>semanas</option>
+                                                <option>meses</option>
+                                                <option>años</option>
+                                            </select>
+                                        </div>
+
+                                        <div>
+                                            <label for="dias-semana">Días de la semana</label>
+                                            <select multiple id="dias-semana">
+                                                <option>lu</option>
+                                                <option>ma</option>
+                                                <option>mi</option>
+                                                <option>ju</option>
+                                                <option>vi</option>
+                                                <option>sá</option>
+                                                <option>do</option>
+                                            </select>
+                                        </div>
+                                        <button type="button">Guardar</button>
+                                    </div>
+                                </li>
+                                <li class="quitar">
+                                    <a href="#">No repetir nunca</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                    <button type="submit">Agregar</button>
                 </div>
-
-                <div id="aviso-form">
-                    <div>
-                        <label for="fecha-aviso">Fecha de aviso</label>
-                        <input type="date" id="fecha-aviso">
-                    </div>
-
-                    <div>
-                        <label for="hora-aviso">Hora del aviso</label>
-                        <select id="hora-aviso">
-                            <option>Mañana</option>
-                            <option>Mediodía</option>
-                            <option>Tarde</option>
-                            <option>A última hora de la tarde</option>
-                        </select>
-                    </div>
-
-                    <button type="button">Guardar</button>
-                </div>
-
-                <div>
-                    <label for="repeticiones">Repeticiones</label>
-                    <select id="repeticiones" title="Repeticiones">
-                        <option>Diariamente</option>
-                        <option>Días laborables</option>
-                        <option>Semanalmente</option>
-                        <option>Mensualmente</option>
-                        <option>Anualmente</option>
-                        <option>Personalizado</option>
-                        <option>No repetir nunca</option>
-                    </select>
-                </div>
-
-                <div id="repeticiones-form">
-                    <div>
-                        <label for="numero-repeticion">Número de repeticiones</label>
-                        <input type="number" id="numero-repeticion">
-                    </div>
-
-                    <div>
-                        <label for="periodo">Periodo</label>
-                        <select id="periodo">
-                            <option>días</option>
-                            <option>semanas</option>
-                            <option>meses</option>
-                            <option>años</option>
-                        </select>
-                    </div>
-
-                    <div>
-                        <label for="dias-semana">Días de la semana</label>
-                        <select multiple id="dias-semana">
-                            <option>lu</option>
-                            <option>ma</option>
-                            <option>mi</option>
-                            <option>ju</option>
-                            <option>vi</option>
-                            <option>sá</option>
-                            <option>do</option>
-                        </select>
-                    </div>
-                    <button type="button">Guardar</button>
-                </div>
-
-                <button type="submit">Agregar</button>
             </fieldset>
         </form>
 

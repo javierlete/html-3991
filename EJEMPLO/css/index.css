@@ -1,0 +1,277 @@
+:root {
+    --color-destacado: rgb(40, 110, 208);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+body>header,
+#usuario h2,
+#predeterminados h2,
+legend,
+body>form>label,
+#usuario label {
+    display: none;
+}
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 65%;
+
+    margin: 0;
+
+    display: grid;
+    grid-template-columns: 16rem 1fr;
+    grid-template-areas:
+        "barra-titulo barra-titulo"
+        "predeterminados main"
+        "usuario main"
+        ". main"
+}
+
+body>form {
+    grid-area: barra-titulo;
+
+    background-color: var(--color-destacado);
+
+    text-align: center;
+
+    padding: 0.25rem;
+}
+
+#predeterminados {
+    grid-area: predeterminados;
+}
+
+#usuario {
+    grid-area: usuario;
+
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#usuario form:last-of-type input {
+    width: 100%;
+}
+
+main {
+    grid-area: main;
+}
+
+input,
+button,
+select {
+    border-radius: 0.25rem;
+    border: 1px solid lightgray;
+    padding: 0.3rem;
+}
+
+section,
+main {
+    padding: 0.5em;
+}
+
+#predeterminados {
+    border-bottom: 1px solid lightgray;
+    ;
+}
+
+ul {
+    list-style: none;
+}
+
+section>ul {
+    padding: 0;
+}
+
+section>ul ul {
+    padding-left: 1rem;
+}
+
+li {
+    padding: 0.25rem;
+    padding-left: 0;
+}
+
+#usuario ul {
+    width: 100%;
+}
+
+#usuario form:first-of-type {
+    display: inline-block;
+    flex-grow: 1;
+}
+
+#usuario form:first-of-type fieldset {
+    width: 100%;
+}
+
+#nombre-lista {
+    width: 100%;
+}
+
+#usuario form:last-of-type {
+    width: 100%;
+}
+
+main {
+    background-color: rgb(243, 243, 243);
+}
+
+main>header > h2, main > header > .desplegable > a {
+    color: var(--color-destacado)
+}
+
+option {
+    font-weight: bold;
+}
+
+main > header {
+    display: flex;
+    align-items: baseline;
+}
+
+main > header > h2 {
+    margin-right: auto;
+}
+
+main ul {
+    padding: 0;
+}
+
+.desplegable {
+    position: relative;
+
+    text-align: center;
+}
+
+.desplegable a, .desplegable .cuerpo-desplegable {
+    width: 100%;
+}
+
+.desplegable > a {
+    display: inline-block;
+}
+
+.desplegable .cuerpo-desplegable, .personalizado {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 1rem;
+    text-align: center;
+
+    width: 8rem;
+
+    z-index: 1000;
+
+    background-color: white;
+
+    border: 1px solid lightgray;
+    border-radius: 0.5rem;
+    box-shadow: 0.1rem 0.1rem 0.1rem lightgray;
+}
+
+#ordenar {
+    left: inherit;
+    right: 0;
+}
+
+.desplegable .cuerpo-desplegable header {
+    padding: 0.5rem;
+    border-bottom: 1px solid lightgray;
+}
+
+.desplegable .cuerpo-desplegable li {
+    padding: 0.5rem;
+}
+
+.desplegable .cuerpo-desplegable .quitar {
+    border-top: 1px solid lightgray;
+}
+
+.desplegable .cuerpo-desplegable .quitar a {
+    color: red;
+}
+
+.personalizado {
+    display: none;
+    position: absolute;
+    left: 8rem;
+    top: inherit;
+
+    padding: 0.25rem;
+}
+
+.personalizado#aviso-form {
+    width: 12rem;
+}
+
+.personalizado input, .personalizado button {
+    margin: 0.5rem 0;
+}
+
+#ordenar:target,  #vencimiento:target, #aviso:target, #repeticiones:target, #vencimiento-form:target, .cuerpo-desplegable:has(#vencimiento-form:target), #aviso-form:target, .cuerpo-desplegable:has(#aviso-form:target), #repeticiones-form:target, .cuerpo-desplegable:has(#repeticiones-form:target) {
+    display: block !important;
+}
+
+main > form > fieldset > div {
+    display: flex;
+    align-items: baseline;
+
+    background-color: lightgray;
+
+    border-radius: 0 0 0.25rem 0.25rem;
+
+    border-top: 1px solid gray;
+
+    padding: 0.25rem;
+}
+
+main > form > fieldset > div > .desplegable {
+    padding: 0.25rem;
+}
+
+main > form > fieldset input {
+    width: 100%;
+
+    border-radius: 0.25rem 0.25rem 0 0 ;
+}
+
+main > form > fieldset button {
+    margin-left: auto;
+}
+
+main > ul li, main > form {
+    border-radius: 0.25rem;
+    background-color: white;;
+    box-shadow: 0.1rem 0.1rem 0.1rem lightgray;
+
+    margin: 0.5rem 0;
+}
+
+main > ul li {
+    display: flex;
+    align-items: center;
+}
+
+main > ul input:last-of-type {
+    margin-left: auto;
+}
+
+@media (max-width: 512px) {
+    body {
+        grid-template-columns: 0 4fr;
+    }    
+}    
