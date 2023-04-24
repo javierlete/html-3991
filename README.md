@@ -25,6 +25,7 @@ w3schools.com: https://www.w3schools.com/html/default.asp
 # CSS
 
 ## Chuletas
+CSS3: https://www.jmsalai.com/wp-content/uploads/2014/09/css3-cheatsheet-esp.pdf
 Flexbox: https://css-tricks.com/snippets/css/a-guide-to-flexbox/
 Grid: https://css-tricks.com/snippets/css/complete-guide-grid/
 
