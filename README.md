@@ -33,6 +33,7 @@ Grid: https://css-tricks.com/snippets/css/complete-guide-grid/
 
 ## Juegos
 CSS Dinner: https://flukeout.github.io/
-Flexbox Froggy: https://flexboxfroggy.com/#es
-Grid Garden: https://cssgridgarden.com/#es
 
+Flexbox Froggy: https://flexboxfroggy.com/#es
+
+Grid Garden: https://cssgridgarden.com/#es
