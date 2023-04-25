@@ -1,0 +1,64 @@
+{
+  "tareas": [
+    {
+      "id": 1,
+      "titulo": "Tarea 1",
+      "completada": false,
+      "importante": false
+    },
+    {
+      "id": 2,
+      "titulo": "Tarea 2",
+      "completada": false,
+      "importante": false
+    },
+    {
+      "id": 3,
+      "titulo": "Tarea 3",
+      "completada": true,
+      "importante": true
+    },
+    {
+      "id": 4,
+      "titulo": "Tarea 4",
+      "completada": false,
+      "importante": true
+    },
+    {
+      "id": 5,
+      "titulo": "Tarea 5",
+      "completada": true,
+      "importante": false
+    },
+    {
+      "id": 6,
+      "titulo": "Tarea 6",
+      "completada": false,
+      "importante": false
+    },
+    {
+      "id": 7,
+      "titulo": "Tarea 7",
+      "completada": false,
+      "importante": true
+    },
+    {
+      "id": 8,
+      "titulo": "Tarea 8",
+      "completada": true,
+      "importante": false
+    },
+    {
+      "id": 9,
+      "titulo": "Tarea 9",
+      "completada": false,
+      "importante": false
+    },
+    {
+      "id": 10,
+      "titulo": "Tarea 10",
+      "completada": false,
+      "importante": true
+    }
+  ]
+}
