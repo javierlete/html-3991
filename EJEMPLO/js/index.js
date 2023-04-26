@@ -42,7 +42,63 @@ document.addEventListener('DOMContentLoaded', function (event) {
     iconoCompletadas = document.getElementById('icono-completadas');
 
     iconoCompletadas.innerHTML = ICONO_PLEGADO;
+
+    const importancia = document.getElementById('importancia');
+    const alfabeticamente = document.getElementById('alfabeticamente');
+
+    alfabeticamente.addEventListener('click', alfabeticamenteClick);
+    importancia.addEventListener('click', importanciaClick);
 });
+
+function importanciaClick() {
+    let lis = ulTareasPendientes.children;
+
+    console.log(lis[0].querySelector('label input').checked);
+
+    let arr = Array.prototype.slice.call(lis);
+
+    // a	    b	    sort    
+    // true	    true	0	    a == b
+    // true	    false	-1	    a < b
+    // false	true	1	    a > b
+    // false	false	0	    a == b
+    arr = arr.sort(function (liA, liB) {
+        const a = liA.querySelector('label input').checked;
+        const b = liB.querySelector('label input').checked;
+
+        if(a==b) {
+            return 0;
+        }
+
+        return a ? -1 : 1;
+    });
+
+    console.log(arr[0].querySelector('label input').checked);
+
+    ulTareasPendientes.innerHTML = '';
+
+    for (let li of arr) {
+        ulTareasPendientes.appendChild(li);
+    }
+}
+
+function alfabeticamenteClick() {
+    let lis = ulTareasPendientes.children;
+
+    console.log(lis);
+
+    let arr = Array.prototype.slice.call(lis);
+
+    arr = arr.sort(function (a, b) {
+        return a.innerText.localeCompare(b.innerText);
+    });
+
+    ulTareasPendientes.innerHTML = '';
+
+    for (let li of arr) {
+        ulTareasPendientes.appendChild(li);
+    }
+}
 
 function completadasClick(e) {
     const display = e.target.checked ? 'block' : 'none';
