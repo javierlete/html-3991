@@ -1,43 +1,53 @@
+// document DOMContentLoaded
+//     getTareas
+//         agregarTareaAul
+//             crearLi
+//     form submit
+//         envioFormulario
+
 let ulTareasPendientes, ulTareasCompletadas;
 
 document.addEventListener('DOMContentLoaded', function (event) {
-    console.log('DOM fully loaded and parsed');
+    // Obtenemos por id el ul de tareas pendientes y tareas completadas
+    ulTareasPendientes = document.getElementById('tareas-pendientes');
+    ulTareasCompletadas = document.getElementById('tareas-completadas');
 
     getTareas();
 
     const form = document.querySelector('main form');
 
-    form.addEventListener('submit', async function (e) {
-        e.preventDefault();
-
-        const tarea = {
-            titulo: document.getElementById('tarea').value,
-            importante: false,
-            completada: false
-        }
-
-        try {
-            const respuesta = await fetch('http://localhost:3000/tareas', {
-                method: 'POST',
-                body: JSON.stringify(tarea),
-                headers: {
-                    'Content-Type': 'application/json'
-                }
-            });
-
-            if (respuesta.ok) {
-                const tareaConfirmada = await respuesta.json();
-
-                agregarTareaAul(tareaConfirmada);
-            } else {
-                throw new Error(respuesta.statusText);
-            }
-        } catch (error) {
-            console.error(error);
-        }  
-    })
+    form.addEventListener('submit', envioFormulario);
 });
 
+async function envioFormulario(e) {
+    e.preventDefault();
+
+    const tarea = {
+        titulo: document.getElementById('tarea').value,
+        importante: false,
+        completada: false
+    }
+
+    try {
+        const respuesta = await fetch('http://localhost:3000/tareas', {
+            method: 'POST',
+            body: JSON.stringify(tarea),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+
+        if (respuesta.ok) {
+            const tareaConfirmada = await respuesta.json();
+
+            agregarTareaAul(tareaConfirmada);
+        } else {
+            throw new Error(respuesta.statusText);
+        }
+    } catch (error) {
+        console.error(error);
+    }
+}
 async function getTareas() {
     try {
         // Nos conectamos al JSON-SERVER y le pedimos el conjunto de tareas
@@ -47,16 +57,11 @@ async function getTareas() {
         // Visualizamos en consola el array de tareas
         console.log(tareas);
 
-        // Obtenemos por id el ul de tareas pendientes y tareas completadas
-        ulTareasPendientes = document.getElementById('tareas-pendientes');
-        ulTareasCompletadas = document.getElementById('tareas-completadas');
-
         // Borramos todos los elementos de la lista
         ulTareasPendientes.innerHTML = '';
         ulTareasCompletadas.innerHTML = '';
 
         tareas.forEach(tarea => {
-            // Creamos un nuevo li
             agregarTareaAul(tarea);
         });
         // Si se detecta un error

@@ -59,6 +59,12 @@
       "titulo": "Tarea 10",
       "completada": false,
       "importante": true
+    },
+    {
+      "titulo": "Nueva",
+      "importante": false,
+      "completada": false,
+      "id": 11
     }
   ]
 }
