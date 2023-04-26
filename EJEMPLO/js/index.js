@@ -13,13 +13,23 @@ document.addEventListener('DOMContentLoaded', function (event) {
     ulTareasPendientes = document.getElementById('tareas-pendientes');
     ulTareasCompletadas = document.getElementById('tareas-completadas');
 
+    ulTareasCompletadas.style.display = 'none';
+
     getTareas();
 
     const form = document.querySelector('main form');
 
     form.addEventListener('submit', envioFormulario);
+
+    const completadas = document.getElementById('completadas');
+
+    completadas.addEventListener('click', completadasClick);
 });
 
+function completadasClick(e) {
+    const display = e.target.checked ? 'block' : 'none';
+    ulTareasCompletadas.style.display = display;
+}
 
 async function envioFormulario(e) {
     e.preventDefault();
