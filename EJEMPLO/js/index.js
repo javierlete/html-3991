@@ -5,6 +5,7 @@
 //     form submit
 //         envioFormulario
 
+const URL = 'http://localhost:3000/tareas';
 let ulTareasPendientes, ulTareasCompletadas;
 
 document.addEventListener('DOMContentLoaded', function (event) {
@@ -19,6 +20,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
     form.addEventListener('submit', envioFormulario);
 });
 
+
 async function envioFormulario(e) {
     e.preventDefault();
 
@@ -29,7 +31,7 @@ async function envioFormulario(e) {
     }
 
     try {
-        const respuesta = await fetch('http://localhost:3000/tareas', {
+        const respuesta = await fetch(URL, {
             method: 'POST',
             body: JSON.stringify(tarea),
             headers: {
@@ -51,7 +53,7 @@ async function envioFormulario(e) {
 async function getTareas() {
     try {
         // Nos conectamos al JSON-SERVER y le pedimos el conjunto de tareas
-        const response = await fetch('http://localhost:3000/tareas');
+        const response = await fetch(URL);
         // Convertimos la respuesta en un array de objetos
         const tareas = await response.json();
         // Visualizamos en consola el array de tareas
@@ -85,6 +87,9 @@ function agregarTareaAul(tarea) {
 
 function crearLi(tarea) {
     const li = document.createElement('li');
+
+    li.dataset.id = tarea.id;
+
     // Creamos un nuevo checkbox para finalizar la tarea
     const checkboxFinalizar = document.createElement('input');
 
@@ -116,8 +121,23 @@ function crearLi(tarea) {
     return li;
 }
 
-function finalizarClick() {
+async function finalizarClick() {
     const li = this.parentNode;
+
+    const id = li.dataset.id;
+
+    const respuesta = await fetch(`${URL}/${id}`, {
+        method: 'PATCH',
+        body: JSON.stringify({ completada: this.checked }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+
+    if (!respuesta.ok) {
+        alert('No se pudo finalizar la tarea');
+        return;
+    }
     
     if(!this.checked) {
         const del = li.querySelector('del');
