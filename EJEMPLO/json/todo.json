@@ -39,7 +39,7 @@
     {
       "id": 7,
       "titulo": "Tarea 7",
-      "completada": false,
+      "completada": true,
       "importante": true
     },
     {
@@ -63,7 +63,7 @@
     {
       "titulo": "Nueva",
       "importante": false,
-      "completada": false,
+      "completada": true,
       "id": 11
     }
   ]

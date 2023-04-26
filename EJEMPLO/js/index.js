@@ -4,9 +4,16 @@
 //             crearLi
 //     form submit
 //         envioFormulario
+'use strict';
 
 const URL = 'http://localhost:3000/tareas';
-let ulTareasPendientes, ulTareasCompletadas;
+const ICONO_PLEGADO = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
+                       </svg>`
+const ICONO_DESPLEGADO = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
+                          </svg>`;
+let ulTareasPendientes, ulTareasCompletadas, iconoCompletadas;
 
 document.addEventListener('DOMContentLoaded', function (event) {
     // Obtenemos por id el ul de tareas pendientes y tareas completadas
@@ -23,11 +30,20 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
     const completadas = document.getElementById('completadas');
 
+    completadas.style.display = 'none';
     completadas.addEventListener('click', completadasClick);
+
+    iconoCompletadas = document.getElementById('icono-completadas');
+
+    iconoCompletadas.innerHTML = ICONO_PLEGADO;
 });
 
 function completadasClick(e) {
     const display = e.target.checked ? 'block' : 'none';
+    const icono = e.target.checked ? ICONO_DESPLEGADO : ICONO_PLEGADO;
+
+    iconoCompletadas.innerHTML = icono;
+
     ulTareasCompletadas.style.display = display;
 }
 
@@ -148,8 +164,8 @@ async function finalizarClick() {
         alert('No se pudo finalizar la tarea');
         return;
     }
-    
-    if(!this.checked) {
+
+    if (!this.checked) {
         const del = li.querySelector('del');
         const texto = del.innerHTML;
 
