@@ -143,8 +143,28 @@ function crearLi(tarea) {
     checkboxImportante.title = 'Importante';
     checkboxImportante.checked = tarea.importante;
 
+    checkboxImportante.addEventListener('click', importanteClick);
+
     li.appendChild(checkboxImportante);
     return li;
+}
+
+async function importanteClick(e) {
+    const li = e.target.parentElement;
+    const id = li.dataset.id;
+
+    const respuesta = await fetch(`${URL}/${id}`, {
+        method: 'PATCH',
+        body: JSON.stringify({ importante: this.checked }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+
+    if (!respuesta.ok) {
+        alert('No se pudo marcar la tarea como importante');
+        return;
+    }
 }
 
 async function finalizarClick() {
