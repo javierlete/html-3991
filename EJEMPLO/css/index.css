@@ -266,7 +266,7 @@ main > ul li {
     align-items: center;
 }
 
-main > ul input:last-of-type {
+main > ul label:last-of-type {
     margin-left: auto;
 }
 
