@@ -92,6 +92,8 @@ function crearLi(tarea) {
     checkboxFinalizar.title = 'Finalizar';
     checkboxFinalizar.checked = tarea.completada;
 
+    checkboxFinalizar.addEventListener('click', finalizarClick);
+
     li.appendChild(checkboxFinalizar);
 
     // Añadimos el texto de la tarea
@@ -113,6 +115,29 @@ function crearLi(tarea) {
     li.appendChild(checkboxImportante);
     return li;
 }
+
+function finalizarClick() {
+    const li = this.parentNode;
+    
+    if(!this.checked) {
+        const del = li.querySelector('del');
+        const texto = del.innerHTML;
+
+        del.outerHTML = `<span>${texto}</span>`;
+
+        ulTareasCompletadas.removeChild(li);
+        ulTareasPendientes.appendChild(li);
+    } else {
+        const span = li.querySelector('span');
+        const texto = span.innerHTML;
+
+        span.outerHTML = `<del>${texto}</del>`;
+
+        ulTareasPendientes.removeChild(li);
+        ulTareasCompletadas.appendChild(li);
+    }
+}
+
 // // Por cada tarea vamos a repetir lo siguiente
 // tareas.forEach(tarea => {
 //     // Creamos un nuevo list item <li></li>
