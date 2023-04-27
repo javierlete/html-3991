@@ -7,10 +7,10 @@
 'use strict';
 
 const URL = 'http://localhost:3000/tareas';
-const ICONO_PLEGADO = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
+const FLECHA_ARRIBA = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M8 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L7.5 2.707V14.5a.5.5 0 0 0 .5.5z"/>
                        </svg>`
-const ICONO_DESPLEGADO = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
+const FLECHA_ABAJO = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-down" viewBox="0 0 16 16">
                             <path fill-rule="evenodd" d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"/>
                           </svg>`;
 const ESTRELLA_HUECA = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
@@ -19,12 +19,16 @@ const ESTRELLA_HUECA = `<svg xmlns="http://www.w3.org/2000/svg" width="16" heigh
 const ESTRELLA_RELLENA = `<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
                         <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
                         </svg>`;
+
 let ulTareasPendientes, ulTareasCompletadas, iconoCompletadas;
+let ordenarVinculo, sentidoOrdenar = 1, criterioOrdenacion = 'Ordenar';
 
 document.addEventListener('DOMContentLoaded', function (event) {
     // Obtenemos por id el ul de tareas pendientes y tareas completadas
     ulTareasPendientes = document.getElementById('tareas-pendientes');
     ulTareasCompletadas = document.getElementById('tareas-completadas');
+
+    ordenarVinculo = document.querySelector('[href="#ordenar"]');
 
     ulTareasCompletadas.style.display = 'none';
 
@@ -41,7 +45,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
     iconoCompletadas = document.getElementById('icono-completadas');
 
-    iconoCompletadas.innerHTML = ICONO_PLEGADO;
+    iconoCompletadas.innerHTML = FLECHA_ARRIBA;
 
     const importancia = document.getElementById('importancia');
     const alfabeticamente = document.getElementById('alfabeticamente');
@@ -50,24 +54,34 @@ document.addEventListener('DOMContentLoaded', function (event) {
     alfabeticamente.addEventListener('click', alfabeticamenteClick);
     importancia.addEventListener('click', importanciaClick);
     fechaDeCreacion.addEventListener('click', fechaDeCreacionClick);
-
 });
 
-function ordenar(criterio) {
+function ordenar(criterio, texto) {
+    cambiarCriterioOrdenacion(texto);
+
     ordenarUl(ulTareasPendientes, criterio);
     ordenarUl(ulTareasCompletadas, criterio);
 }
 
+function cambiarCriterioOrdenacion(texto) {
+    sentidoOrdenar = criterioOrdenacion == texto ? sentidoOrdenar * -1 : 1;
+    criterioOrdenacion = texto;
+
+    console.log(criterioOrdenacion, sentidoOrdenar);
+
+    ordenarVinculo.innerHTML = criterioOrdenacion + (sentidoOrdenar == 1 ?  FLECHA_ABAJO : FLECHA_ARRIBA);
+}
+
 function ordenarUl(ul, criterio) {
-    let lis = ul.children;
+    const lis = ul.children;
 
-    let arr = Array.prototype.slice.call(lis);
+    const arr = Array.prototype.slice.call(lis);
 
-    arr = arr.sort(criterio);
+    const arrOrdenado = arr.sort(criterio);
 
     ul.innerHTML = '';
 
-    for (let li of arr) {
+    for (let li of arrOrdenado) {
         ul.appendChild(li);
     }
 }
@@ -77,8 +91,8 @@ function fechaDeCreacionClick() {
         const creacionA = a.querySelector('.creacion').innerText;
         const creacionB = b.querySelector('.creacion').innerText;
 
-        return creacionA.localeCompare(creacionB);
-    });
+        return creacionA.localeCompare(creacionB) * sentidoOrdenar;
+    }, 'Fecha de creación');
 }
 function importanciaClick() {
     ordenar(function (liA, liB) {
@@ -89,8 +103,8 @@ function importanciaClick() {
             return 0;
         }
 
-        return a ? -1 : 1;
-    });
+        return sentidoOrdenar * (a ? -1 : 1);
+    }, 'Importancia');
     // a	    b	    sort    
     // true	    true	0	    a == b
     // true	    false	-1	    a < b
@@ -99,12 +113,12 @@ function importanciaClick() {
 }
 
 function alfabeticamenteClick() {
-    ordenar((a, b) => a.innerText.localeCompare(b.innerText));
+    ordenar((a, b) => a.innerText.localeCompare(b.innerText) * sentidoOrdenar, 'Alfabéticamente');
 }
 
 function completadasClick(e) {
     const display = e.target.checked ? 'block' : 'none';
-    const icono = e.target.checked ? ICONO_DESPLEGADO : ICONO_PLEGADO;
+    const icono = e.target.checked ? FLECHA_ABAJO : FLECHA_ARRIBA;
 
     iconoCompletadas.innerHTML = icono;
 
@@ -117,7 +131,8 @@ async function envioFormulario(e) {
     const tarea = {
         titulo: document.getElementById('tarea').value,
         importante: false,
-        completada: false
+        completada: false,
+        creacion: new Date().toISOString().substring(0, 10)
     }
 
     try {
