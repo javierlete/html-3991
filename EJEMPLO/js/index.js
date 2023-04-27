@@ -45,9 +45,12 @@ document.addEventListener('DOMContentLoaded', function (event) {
 
     const importancia = document.getElementById('importancia');
     const alfabeticamente = document.getElementById('alfabeticamente');
+    const fechaDeCreacion = document.getElementById('fecha-de-creacion');
 
     alfabeticamente.addEventListener('click', alfabeticamenteClick);
     importancia.addEventListener('click', importanciaClick);
+    fechaDeCreacion.addEventListener('click', fechaDeCreacionClick);
+
 });
 
 function ordenar(criterio) {
@@ -62,6 +65,15 @@ function ordenar(criterio) {
     for (let li of arr) {
         ulTareasPendientes.appendChild(li);
     }
+}
+
+function fechaDeCreacionClick() {
+    ordenar((a, b) => {
+        const creacionA = a.querySelector('.creacion').innerText;
+        const creacionB = b.querySelector('.creacion').innerText;
+
+        return creacionA.localeCompare(creacionB);
+    });
 }
 function importanciaClick() {
     ordenar(function (liA, liB) {
@@ -181,7 +193,7 @@ function crearLi(tarea) {
         tipoEtiqueta = 'del';
     }
     const etiqueta = document.createElement(tipoEtiqueta);
-    etiqueta.innerHTML = tarea.titulo;
+    etiqueta.innerHTML = `<span class="titulo">${tarea.titulo}</span> <span class="creacion">${tarea.creacion}</span>`;
     li.appendChild(etiqueta);
     
     const labelImportante = document.createElement('label');
