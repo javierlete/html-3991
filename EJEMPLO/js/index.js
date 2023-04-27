@@ -50,19 +50,21 @@ document.addEventListener('DOMContentLoaded', function (event) {
     importancia.addEventListener('click', importanciaClick);
 });
 
-function importanciaClick() {
+function ordenar(criterio) {
     let lis = ulTareasPendientes.children;
-
-    console.log(lis[0].querySelector('label input').checked);
 
     let arr = Array.prototype.slice.call(lis);
 
-    // a	    b	    sort    
-    // true	    true	0	    a == b
-    // true	    false	-1	    a < b
-    // false	true	1	    a > b
-    // false	false	0	    a == b
-    arr = arr.sort(function (liA, liB) {
+    arr = arr.sort(criterio);
+
+    ulTareasPendientes.innerHTML = '';
+
+    for (let li of arr) {
+        ulTareasPendientes.appendChild(li);
+    }
+}
+function importanciaClick() {
+    ordenar(function (liA, liB) {
         const a = liA.querySelector('label input').checked;
         const b = liB.querySelector('label input').checked;
 
@@ -72,32 +74,15 @@ function importanciaClick() {
 
         return a ? -1 : 1;
     });
-
-    console.log(arr[0].querySelector('label input').checked);
-
-    ulTareasPendientes.innerHTML = '';
-
-    for (let li of arr) {
-        ulTareasPendientes.appendChild(li);
-    }
+    // a	    b	    sort    
+    // true	    true	0	    a == b
+    // true	    false	-1	    a < b
+    // false	true	1	    a > b
+    // false	false	0	    a == b
 }
 
 function alfabeticamenteClick() {
-    let lis = ulTareasPendientes.children;
-
-    console.log(lis);
-
-    let arr = Array.prototype.slice.call(lis);
-
-    arr = arr.sort(function (a, b) {
-        return a.innerText.localeCompare(b.innerText);
-    });
-
-    ulTareasPendientes.innerHTML = '';
-
-    for (let li of arr) {
-        ulTareasPendientes.appendChild(li);
-    }
+    ordenar((a, b) => a.innerText.localeCompare(b.innerText));
 }
 
 function completadasClick(e) {
