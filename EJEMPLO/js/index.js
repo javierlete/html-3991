@@ -48,10 +48,12 @@ document.addEventListener('DOMContentLoaded', function (event) {
     iconoCompletadas.innerHTML = FLECHA_ARRIBA;
 
     const importancia = document.getElementById('importancia');
+    const vencimiento = document.getElementById('vencimiento');
     const alfabeticamente = document.getElementById('alfabeticamente');
     const fechaDeCreacion = document.getElementById('fecha-de-creacion');
 
     alfabeticamente.addEventListener('click', alfabeticamenteClick);
+    vencimiento.addEventListener('click', vencimientoClick);
     importancia.addEventListener('click', importanciaClick);
     fechaDeCreacion.addEventListener('click', fechaDeCreacionClick);
 });
@@ -84,6 +86,26 @@ function ordenarUl(ul, criterio) {
     for (let li of arrOrdenado) {
         ul.appendChild(li);
     }
+}
+
+function vencimientoClick() {
+    ordenar(function (liA, liB) {
+        const vencimientoA = liA.querySelector('.vencimiento');
+        const vencimientoB = liB.querySelector('.vencimiento');
+
+        if(!vencimientoA) {
+            return 1 * sentidoOrdenar;
+        }
+
+        if(!vencimientoB) {
+            return -1 * sentidoOrdenar;
+        }
+
+        const a = vencimientoA.innerText;
+        const b = vencimientoB.innerText;
+
+        return a.localeCompare(b) * sentidoOrdenar;
+    }, 'Vencimiento');
 }
 
 function fechaDeCreacionClick() {
@@ -213,7 +235,10 @@ function crearLi(tarea) {
         tipoEtiqueta = 'del';
     }
     const etiqueta = document.createElement(tipoEtiqueta);
-    etiqueta.innerHTML = `<span class="titulo">${tarea.titulo}</span> <span class="creacion">${tarea.creacion}</span>`;
+    etiqueta.innerHTML = `
+        <span class="titulo">${tarea.titulo}</span>
+        <span class="creacion">${tarea.creacion}</span>
+    ` + (tarea.vencimiento ? `<span class="vencimiento">${tarea.vencimiento}</span>` : '');
     li.appendChild(etiqueta);
     
     const labelImportante = document.createElement('label');

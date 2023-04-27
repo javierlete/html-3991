@@ -270,6 +270,23 @@ main > ul label:last-of-type {
     margin-left: auto;
 }
 
+.creacion, .vencimiento {
+    font-size: 75%;
+    color: gray;
+}
+
+.creacion::before {
+    content: 'Creación: ('
+}
+
+.vencimiento::before {
+    content: 'Vencimiento: (';
+}
+
+.creacion::after, .vencimiento::after {
+    content: ')';
+}
+
 @media (max-width: 512px) {
     body {
         grid-template-columns: 0 4fr;

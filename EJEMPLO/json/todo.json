@@ -5,49 +5,56 @@
       "titulo": "Tarea 1",
       "completada": false,
       "importante": false,
-      "creacion": "2022-01-01"
+      "creacion": "2022-01-01",
+      "vencimiento": "2022-02-15"
     },
     {
       "id": 2,
       "titulo": "Tarea 2",
       "completada": false,
       "importante": false,
-      "creacion": "2022-04-02"
+      "creacion": "2022-04-02",
+      "vencimiento": "2022-07-01"
     },
     {
       "id": 3,
       "titulo": "Tarea 3",
       "completada": true,
       "importante": true,
-      "creacion": "2023-01-02"
+      "creacion": "2023-01-02",
+      "vencimiento": "2023-02-01"
     },
     {
       "id": 4,
       "titulo": "Tarea 4",
       "completada": false,
       "importante": true,
-      "creacion": "2022-02-02"
+      "creacion": "2022-02-02",
+      "vencimiento": "2022-05-01"
     },
     {
       "id": 5,
       "titulo": "Tarea 5",
       "completada": true,
       "importante": false,
-      "creacion": "2023-04-02"
+      "creacion": "2023-04-02",
+      "vencimiento": "2023-07-01"
     },
     {
       "id": 6,
       "titulo": "Tarea 6",
       "completada": false,
       "importante": false,
-      "creacion": "2022-01-02"
+      "creacion": "2022-01-02",
+      "vencimiento": "2022-02-01"
     },
     {
       "id": 7,
       "titulo": "Tarea 7",
       "completada": true,
       "importante": true,
-      "creacion": "2022-07-02"
+      "creacion": "2022-07-02",
+      "vencimiento": "2022-11-01"
     },
     {
       "id": 8,
