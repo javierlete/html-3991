@@ -54,16 +54,21 @@ document.addEventListener('DOMContentLoaded', function (event) {
 });
 
 function ordenar(criterio) {
-    let lis = ulTareasPendientes.children;
+    ordenarUl(ulTareasPendientes, criterio);
+    ordenarUl(ulTareasCompletadas, criterio);
+}
+
+function ordenarUl(ul, criterio) {
+    let lis = ul.children;
 
     let arr = Array.prototype.slice.call(lis);
 
     arr = arr.sort(criterio);
 
-    ulTareasPendientes.innerHTML = '';
+    ul.innerHTML = '';
 
     for (let li of arr) {
-        ulTareasPendientes.appendChild(li);
+        ul.appendChild(li);
     }
 }
 
