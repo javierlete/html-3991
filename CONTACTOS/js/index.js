@@ -4,32 +4,37 @@ const URL = 'http://localhost:3000/contactos';
 
 let ulContactos;
 let contactos;
+let spanNumeroContactos;
 
 window.addEventListener('DOMContentLoaded', async () => {
     ulContactos = document.querySelector('#contactos');
+    spanNumeroContactos = document.querySelector('main header span:last-of-type');
     const inputBusqueda = document.querySelector('form input[type=search]');
 
-    inputBusqueda.addEventListener('keyup', e => {
-        const busqueda = e.target.value;
-
-        const contactosFiltrados = contactos.filter(
-            // Esta c es diferente de la otra porque están en diferentes ámbitos
-            c => {
-                const nombreCompleto = c.nombre + ' ' + c.apellidos;
-                const nombreLimpio = normalizar(nombreCompleto);
-                const busquedaLimpia = normalizar(busqueda);
-
-                return nombreLimpio.includes(busquedaLimpia);
-            }
-        );
-        listarContactos(contactosFiltrados);
-    });
+    inputBusqueda.addEventListener('input', filtrar);
 
     const respuesta = await fetch(URL);
     contactos = await respuesta.json();
 
     listarContactos(contactos);
 });
+
+function filtrar(e) {
+    const busqueda = e.target.value;
+
+    const contactosFiltrados = contactos.filter(
+        // Esta c es diferente de la otra porque están en diferentes ámbitos
+        c => {
+            const nombreCompleto = c.nombre + ' ' + c.apellidos;
+            const nombreLimpio = normalizar(nombreCompleto);
+            const busquedaLimpia = normalizar(busqueda);
+
+            return nombreLimpio.includes(busquedaLimpia);
+        }
+    );
+    
+    listarContactos(contactosFiltrados);
+}
 
 function normalizar(texto) {
     return texto.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
@@ -48,5 +53,7 @@ function listarContactos(contactos) {
 
         ulContactos.appendChild(li);
     }
+
+    spanNumeroContactos.innerHTML = contactos.length + ' contacto' + (contactos.length == 1 ? '' : 's');
 }
 
