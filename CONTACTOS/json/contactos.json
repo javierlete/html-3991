@@ -3,57 +3,57 @@
         {
             "id": 1,
             "nombre": "Juan",
-            "apellidos": "Perez"
+            "apellidos": "Pérez"
         },
         {
             "id": 2,
             "nombre": "Pedro",
-            "apellidos": "Gonzalez"
+            "apellidos": "González"
         },
         {
             "id": 3,
             "nombre": "Maria",
-            "apellidos": "Gonzalez"
+            "apellidos": "Gonçalvez"
         },
         {
             "id": 4,
             "nombre": "Ana",
-            "apellidos": "Sanchez"
+            "apellidos": "Peña"
         },
         {
             "id": 5,
             "nombre": "Luis",
-            "apellidos": "Martinez"
+            "apellidos": "Martínez"
         },
         {
             "id": 6,
             "nombre": "Carlos",
-            "apellidos": "Rodriguez"
+            "apellidos": "Rodríguez"
         },
         {
             "id": 7,
             "nombre": "Sonia",
-            "apellidos": "Lopez"
+            "apellidos": "López"
         },
         {
             "id": 8,
             "nombre": "Laura",
-            "apellidos": "Garcia"
+            "apellidos": "García"
         },
         {
             "id": 9,
             "nombre": "Jorge",
-            "apellidos": "Fernandez"
+            "apellidos": "Fernández"
         },
         {
             "id": 10,
             "nombre": "Elena",
-            "apellidos": "Alvarez"
+            "apellidos": "Álvarez"
         },
         {
             "id": 11,
             "nombre": "Diego",
-            "apellidos": "Jimenez"
+            "apellidos": "Jiménez"
         }
     ]
 }
