@@ -1,59 +1,71 @@
 {
-    "contactos": [
-        {
-            "id": 1,
-            "nombre": "Juan",
-            "apellidos": "Pérez"
-        },
-        {
-            "id": 2,
-            "nombre": "Pedro",
-            "apellidos": "González"
-        },
-        {
-            "id": 3,
-            "nombre": "María",
-            "apellidos": "Gonçalvez"
-        },
-        {
-            "id": 4,
-            "nombre": "Ana",
-            "apellidos": "Peña"
-        },
-        {
-            "id": 5,
-            "nombre": "Luis",
-            "apellidos": "Martínez"
-        },
-        {
-            "id": 6,
-            "nombre": "Carlos",
-            "apellidos": "Rodríguez"
-        },
-        {
-            "id": 7,
-            "nombre": "Sonia",
-            "apellidos": "López"
-        },
-        {
-            "id": 8,
-            "nombre": "Laura",
-            "apellidos": "García"
-        },
-        {
-            "id": 9,
-            "nombre": "Jorge",
-            "apellidos": "Fernández"
-        },
-        {
-            "id": 10,
-            "nombre": "Elena",
-            "apellidos": "Álvarez"
-        },
-        {
-            "id": 11,
-            "nombre": "Diego",
-            "apellidos": "Jiménez"
-        }
-    ]
+  "contactos": [
+    {
+      "id": 1,
+      "nombre": "Juan",
+      "apellidos": "Pérez"
+    },
+    {
+      "id": 2,
+      "nombre": "Pedro",
+      "apellidos": "González"
+    },
+    {
+      "id": 3,
+      "nombre": "María",
+      "apellidos": "Gonçalvez"
+    },
+    {
+      "id": 4,
+      "nombre": "Ana",
+      "apellidos": "Peña"
+    },
+    {
+      "id": 5,
+      "nombre": "Luis",
+      "apellidos": "Martínez"
+    },
+    {
+      "id": 6,
+      "nombre": "Carlos",
+      "apellidos": "Rodríguez"
+    },
+    {
+      "id": 7,
+      "nombre": "Sonia",
+      "apellidos": "López"
+    },
+    {
+      "id": 8,
+      "nombre": "Laura",
+      "apellidos": "García"
+    },
+    {
+      "id": 9,
+      "nombre": "Jorge",
+      "apellidos": "Fernández"
+    },
+    {
+      "id": 10,
+      "nombre": "Elena",
+      "apellidos": "Álvarez"
+    },
+    {
+      "id": 11,
+      "nombre": "Diego",
+      "apellidos": "Jiménez"
+    },
+    {
+      "nombre": "Prueba",
+      "apellidos": "Pruebez",
+      "empresa": "Yupii",
+      "telefono": "123456789",
+      "etiqueta": "Fijo",
+      "email": "a@b.c",
+      "etiquetaEmail": "Trabajo",
+      "fecha": "2023-01-01",
+      "etiquetaFecha": "Aniversario",
+      "id": 12
+    }
+  ]
 }

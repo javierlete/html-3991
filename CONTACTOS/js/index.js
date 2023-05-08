@@ -6,23 +6,74 @@ let ulContactos;
 let contactos;
 let spanNumeroContactos;
 let listadoContactos;
+let detalleContacto;
 
 window.addEventListener('DOMContentLoaded', async () => {
     listadoContactos = document.querySelector("#listado-contactos");
-    listadoContactos.style.display = 'none';
-
+    detalleContacto = document.querySelector("#detalle-contacto");
+    
     ulContactos = document.querySelector('#contactos');
     spanNumeroContactos = document.querySelector('main header span:last-of-type');
     const inputBusqueda = document.querySelector('form input[type=search]');
-
     inputBusqueda.addEventListener('input', filtrar);
+
+    const agregar = document.querySelector('#agregar');
+    agregar.addEventListener('click', mostrarFormulario);
+
+    const cerrar = document.querySelector('.btn-close');
+    cerrar.addEventListener('click', mostrarListado);
+
+    const guardar = document.querySelector('#guardar');
+    guardar.addEventListener('click', guardarContacto);
 
     const respuesta = await fetch(URL);
     contactos = await respuesta.json();
 
+    mostrarListado();
     listarContactos(contactos);
 });
 
+async function guardarContacto() {
+    const nombre = document.querySelector('#nombre').value;
+    const apellidos = document.querySelector('#apellidos').value;
+    const empresa = document.querySelector('#empresa').value;
+    const telefono = document.querySelector('#telefono').value;
+    const etiqueta = document.querySelector('#etiqueta').value;
+    const email = document.querySelector('#email').value;
+    const etiquetaEmail = document.querySelector('#etiqueta-email').value;
+    const fecha = document.querySelector('#fecha').value;
+    const etiquetaFecha = document.querySelector('#etiqueta-fecha').value;
+
+    const contacto = {
+        nombre,
+        apellidos,
+        empresa,
+        telefono,
+        etiqueta,
+        email,
+        etiquetaEmail,
+        fecha,
+        etiquetaFecha
+    };
+
+    const respuesta = await fetch(URL, {
+        method: 'POST',
+        body: JSON.stringify(contacto),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+}
+
+function mostrarListado() {
+    detalleContacto.style.display = 'none';
+    listadoContactos.style.display = 'block';
+}
+
+function mostrarFormulario() {
+    detalleContacto.style.display = 'block';
+    listadoContactos.style.display = 'none';
+}
 function filtrar(e) {
     const busqueda = e.target.value;
 
