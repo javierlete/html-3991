@@ -8,10 +8,32 @@ let spanNumeroContactos;
 let listadoContactos;
 let detalleContacto;
 
+let inputId;
+let inputNombre;
+let inputApellidos;
+let inputEmpresa;
+let inputTelefono;
+let inputEtiqueta;
+let inputEmail;
+let inputEtiquetaEmail;
+let inputFecha;
+let inputEtiquetaFecha;
+
 window.addEventListener('DOMContentLoaded', async () => {
+    inputId = document.querySelector('#id');
+    inputNombre = document.querySelector('#nombre');
+    inputApellidos = document.querySelector('#apellidos');
+    inputEmpresa = document.querySelector('#empresa');
+    inputTelefono = document.querySelector('#telefono');
+    inputEtiqueta = document.querySelector('#etiqueta');
+    inputEmail = document.querySelector('#email');
+    inputEtiquetaEmail = document.querySelector('#etiqueta-email');
+    inputFecha = document.querySelector('#fecha');
+    inputEtiquetaFecha = document.querySelector('#etiqueta-fecha');
+
     listadoContactos = document.querySelector("#listado-contactos");
     detalleContacto = document.querySelector("#detalle-contacto");
-    
+
     ulContactos = document.querySelector('#contactos');
     spanNumeroContactos = document.querySelector('main header span:last-of-type');
     const inputBusqueda = document.querySelector('form input[type=search]');
@@ -26,23 +48,28 @@ window.addEventListener('DOMContentLoaded', async () => {
     const guardar = document.querySelector('#guardar');
     guardar.addEventListener('click', guardarContacto);
 
+    await cargarContactos();
+});
+
+async function cargarContactos() {
     const respuesta = await fetch(URL);
     contactos = await respuesta.json();
 
     mostrarListado();
     listarContactos(contactos);
-});
+}
 
 async function guardarContacto() {
-    const nombre = document.querySelector('#nombre').value;
-    const apellidos = document.querySelector('#apellidos').value;
-    const empresa = document.querySelector('#empresa').value;
-    const telefono = document.querySelector('#telefono').value;
-    const etiqueta = document.querySelector('#etiqueta').value;
-    const email = document.querySelector('#email').value;
-    const etiquetaEmail = document.querySelector('#etiqueta-email').value;
-    const fecha = document.querySelector('#fecha').value;
-    const etiquetaFecha = document.querySelector('#etiqueta-fecha').value;
+    const id = inputId.value;
+    const nombre = inputNombre.value;
+    const apellidos = inputApellidos.value;
+    const empresa = inputEmpresa.value;
+    const telefono = inputTelefono.value;
+    const etiqueta = inputEtiqueta.value;
+    const email = inputEmail.value;
+    const etiquetaEmail = inputEtiquetaEmail.value;
+    const fecha = inputFecha.value;
+    const etiquetaFecha = inputEtiquetaFecha.value;
 
     const contacto = {
         nombre,
@@ -56,13 +83,27 @@ async function guardarContacto() {
         etiquetaFecha
     };
 
-    const respuesta = await fetch(URL, {
-        method: 'POST',
-        body: JSON.stringify(contacto),
-        headers: {
-            'Content-Type': 'application/json'
-        }
-    });
+    if(id) {
+        contacto.id = id;
+        
+        const respuesta = await fetch(`${URL}/${id}`, {
+            method: 'PUT',
+            body: JSON.stringify(contacto),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+    } else {
+        const respuesta = await fetch(URL, {
+            method: 'POST',
+            body: JSON.stringify(contacto),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+    }
+
+    await cargarContactos();
 }
 
 function mostrarListado() {
@@ -70,9 +111,27 @@ function mostrarListado() {
     listadoContactos.style.display = 'block';
 }
 
-function mostrarFormulario() {
+async function mostrarFormulario(e) {
     detalleContacto.style.display = 'block';
     listadoContactos.style.display = 'none';
+
+    const id = e?.target?.dataset?.id;
+
+    if (id) {
+        const respuesta = await fetch(`${URL}/${id}`);
+        const c = await respuesta.json();
+
+        inputId.value = c.id;
+        inputNombre.value = c.nombre;
+        inputApellidos.value = c.apellidos;
+        inputEmpresa.value = c.empresa;
+        inputTelefono.value = c.telefono;
+        inputEtiqueta.value = c.etiqueta;
+        inputEmail.value = c.email;
+        inputEtiquetaEmail.value = c.etiquetaEmail;
+        inputFecha.value = c.fecha;
+        inputEtiquetaFecha.value = c.etiquetaFecha;
+    }
 }
 function filtrar(e) {
     const busqueda = e.target.value;
@@ -87,7 +146,7 @@ function filtrar(e) {
             return nombreLimpio.includes(busquedaLimpia);
         }
     );
-    
+
     listarContactos(contactosFiltrados);
 }
 
@@ -105,6 +164,10 @@ function listarContactos(contactos) {
             ${c.nombre} ${c.apellidos}`;
 
         li.className = 'list-group-item border-0';
+
+        li.dataset.id = c.id;
+
+        li.addEventListener('click', mostrarFormulario);
 
         ulContactos.appendChild(li);
     }
