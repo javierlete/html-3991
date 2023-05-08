@@ -5,8 +5,12 @@ const URL = 'http://localhost:3000/contactos';
 let ulContactos;
 let contactos;
 let spanNumeroContactos;
+let listadoContactos;
 
 window.addEventListener('DOMContentLoaded', async () => {
+    listadoContactos = document.querySelector("#listado-contactos");
+    listadoContactos.style.display = 'none';
+
     ulContactos = document.querySelector('#contactos');
     spanNumeroContactos = document.querySelector('main header span:last-of-type');
     const inputBusqueda = document.querySelector('form input[type=search]');
