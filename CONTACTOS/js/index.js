@@ -52,8 +52,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 });
 
 async function cargarContactos() {
-    const respuesta = await fetch(URL);
-    contactos = await respuesta.json();
+    contactos = (await axios.get(URL)).data;
 
     mostrarListado();
     listarContactos(contactos);
@@ -85,22 +84,10 @@ async function guardarContacto() {
 
     if(id) {
         contacto.id = id;
-        
-        const respuesta = await fetch(`${URL}/${id}`, {
-            method: 'PUT',
-            body: JSON.stringify(contacto),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
+
+        const respuesta = await axios.put(`${URL}/${id}`, contacto);
     } else {
-        const respuesta = await fetch(URL, {
-            method: 'POST',
-            body: JSON.stringify(contacto),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
+        const respuesta = await axios.post(URL, contacto);
     }
 
     await cargarContactos();
@@ -118,8 +105,7 @@ async function mostrarFormulario(e) {
     const id = e?.target?.dataset?.id;
 
     if (id) {
-        const respuesta = await fetch(`${URL}/${id}`);
-        const c = await respuesta.json();
+        const c = (await axios.get(`${URL}/${id}`)).data;
 
         inputId.value = c.id;
         inputNombre.value = c.nombre;
@@ -131,6 +117,8 @@ async function mostrarFormulario(e) {
         inputEtiquetaEmail.value = c.etiquetaEmail;
         inputFecha.value = c.fecha;
         inputEtiquetaFecha.value = c.etiquetaFecha;
+    } else {
+        
     }
 }
 function filtrar(e) {
