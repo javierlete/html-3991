@@ -90,6 +90,7 @@ async function guardarContacto() {
     const etiquetaEmail = inputEtiquetaEmail.value;
     const fecha = inputFecha.value;
     const etiquetaFecha = inputEtiquetaFecha.value;
+    const foto = imagen.src;
 
     const contacto = {
         nombre,
@@ -100,7 +101,8 @@ async function guardarContacto() {
         email,
         etiquetaEmail,
         fecha,
-        etiquetaFecha
+        etiquetaFecha,
+        foto
     };
 
     if (id) {
@@ -138,6 +140,17 @@ async function mostrarFormulario(e) {
         inputEtiquetaEmail.value = c.etiquetaEmail ? c.etiquetaEmail : '';
         inputFecha.value = c.fecha ? c.fecha : '';
         inputEtiquetaFecha.value = c.etiquetaFecha ? c.etiquetaFecha : '';
+        
+        if(c.foto) {
+            imagen.style.display = 'inline';
+            imagenFalsa.style.display = 'none';
+            
+            imagen.src = c.foto;
+        } else {
+            imagen.style.display = 'none';
+            imagenFalsa.style.display = 'inline';
+        }
+
     } else {
         inputId.value = '';
         inputNombre.value = '';
@@ -149,6 +162,9 @@ async function mostrarFormulario(e) {
         inputEtiquetaEmail.value = '';
         inputFecha.value = '';
         inputEtiquetaFecha.value = '';
+
+        imagen.style.display = 'none';
+        imagenFalsa.style.display = 'inline';
     }
 }
 function filtrar(e) {
