@@ -8,6 +8,7 @@ let spanNumeroContactos;
 let listadoContactos;
 let detalleContacto;
 
+let form;
 let inputId;
 let inputNombre;
 let inputApellidos;
@@ -20,6 +21,7 @@ let inputFecha;
 let inputEtiquetaFecha;
 
 window.addEventListener('DOMContentLoaded', async () => {
+    form = document.querySelector('#listado-contactos form');
     inputId = document.querySelector('#id');
     inputNombre = document.querySelector('#nombre');
     inputApellidos = document.querySelector('#apellidos');
@@ -118,7 +120,16 @@ async function mostrarFormulario(e) {
         inputFecha.value = c.fecha;
         inputEtiquetaFecha.value = c.etiquetaFecha;
     } else {
-        
+        inputId.value = '';
+        inputNombre.value = '';
+        inputApellidos.value = '';
+        inputEmpresa.value = '';
+        inputTelefono.value = '';
+        inputEtiqueta.value = '';
+        inputEmail.value = '';
+        inputEtiquetaEmail.value = '';
+        inputFecha.value = '';
+        inputEtiquetaFecha.value = '';
     }
 }
 function filtrar(e) {
