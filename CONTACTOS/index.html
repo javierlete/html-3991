@@ -39,7 +39,8 @@
                 </ul>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <button id="guardar" style="font-size: 75%" class="btn btn-primary rounded-5 px-3 py-2">Guardar</button>
+                        <button id="guardar" style="font-size: 75%"
+                            class="btn btn-primary rounded-5 px-3 py-2">Guardar</button>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">
@@ -61,7 +62,12 @@
         </div>
         <div class="text-center mt-5 pt-4">
             <figure class="text-center figure">
-                <i class="fs-1 bi bi-image figure-img img-fluid  bg-light rounded-circle p-5"></i>
+                <img id="imagen" src="" alt=""
+                    class="figure-img img-fluid bg-light rounded-circle border border-secondary">
+                <label>
+                    <i id="imagen-falsa" class="fs-1 bi bi-image figure-img img-fluid  bg-light rounded-circle p-5"></i>
+                    <input class="visually-hidden" type="file" accept="image/*">
+                </label>
                 <figcaption class="figure-caption mt-5 pt-3 mb-4">
                     Añadir imagen
                 </figcaption>

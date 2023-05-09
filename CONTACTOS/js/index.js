@@ -8,7 +8,9 @@ let spanNumeroContactos;
 let listadoContactos;
 let detalleContacto;
 
-let form;
+let imagen, imagenFalsa;
+
+let inputFile;
 let inputId;
 let inputNombre;
 let inputApellidos;
@@ -21,7 +23,11 @@ let inputFecha;
 let inputEtiquetaFecha;
 
 window.addEventListener('DOMContentLoaded', async () => {
-    form = document.querySelector('#listado-contactos form');
+    inputFile = document.querySelector('input[type=file]');
+
+    imagen = document.querySelector('#imagen');
+    imagenFalsa = document.querySelector('#imagen-falsa');
+
     inputId = document.querySelector('#id');
     inputNombre = document.querySelector('#nombre');
     inputApellidos = document.querySelector('#apellidos');
@@ -50,8 +56,21 @@ window.addEventListener('DOMContentLoaded', async () => {
     const guardar = document.querySelector('#guardar');
     guardar.addEventListener('click', guardarContacto);
 
+    inputFile.addEventListener('change', cargarArchivo);
+
+    imagen.style.display = 'none';
+
     await cargarContactos();
 });
+
+async function cargarArchivo() {
+    const archivo = inputFile.files[0];
+
+    imagen.style.display = 'inline';
+    imagenFalsa.style.display = 'none';
+
+    imagen.src = await readBlob(archivo);
+}
 
 async function cargarContactos() {
     contactos = (await axios.get(URL)).data;
@@ -84,7 +103,7 @@ async function guardarContacto() {
         etiquetaFecha
     };
 
-    if(id) {
+    if (id) {
         contacto.id = id;
 
         const respuesta = await axios.put(`${URL}/${id}`, contacto);
@@ -109,16 +128,16 @@ async function mostrarFormulario(e) {
     if (id) {
         const c = (await axios.get(`${URL}/${id}`)).data;
 
-        inputId.value = c.id ? c.id: '';
-        inputNombre.value = c.nombre ? c.nombre: '';
-        inputApellidos.value = c.apellidos ? c.apellidos: '';
-        inputEmpresa.value = c.empresa ? c.empresa: '';
-        inputTelefono.value = c.telefono ? c.telefono: '';
-        inputEtiqueta.value = c.etiqueta ? c.etiqueta: '';
-        inputEmail.value = c.email ? c.email: '';
-        inputEtiquetaEmail.value = c.etiquetaEmail ? c.etiquetaEmail: '';
-        inputFecha.value = c.fecha ? c.fecha: '';
-        inputEtiquetaFecha.value = c.etiquetaFecha ? c.etiquetaFecha: '';
+        inputId.value = c.id ? c.id : '';
+        inputNombre.value = c.nombre ? c.nombre : '';
+        inputApellidos.value = c.apellidos ? c.apellidos : '';
+        inputEmpresa.value = c.empresa ? c.empresa : '';
+        inputTelefono.value = c.telefono ? c.telefono : '';
+        inputEtiqueta.value = c.etiqueta ? c.etiqueta : '';
+        inputEmail.value = c.email ? c.email : '';
+        inputEtiquetaEmail.value = c.etiquetaEmail ? c.etiquetaEmail : '';
+        inputFecha.value = c.fecha ? c.fecha : '';
+        inputEtiquetaFecha.value = c.etiquetaFecha ? c.etiquetaFecha : '';
     } else {
         inputId.value = '';
         inputNombre.value = '';
@@ -174,3 +193,17 @@ function listarContactos(contactos) {
     spanNumeroContactos.innerHTML = contactos.length + ' contacto' + (contactos.length == 1 ? '' : 's');
 }
 
+// https://stackoverflow.com/questions/58558312/create-data-url-from-fetched-image/58569300#58569300
+function readBlob(b) {
+    return new Promise(function (resolve, reject) {
+        const reader = new FileReader();
+
+        reader.onloadend = function () {
+            resolve(reader.result);
+        };
+
+        // TODO: hook up reject to reader.onerror somehow and try it
+
+        reader.readAsDataURL(b);
+    });
+}
