@@ -109,16 +109,16 @@ async function mostrarFormulario(e) {
     if (id) {
         const c = (await axios.get(`${URL}/${id}`)).data;
 
-        inputId.value = c.id;
-        inputNombre.value = c.nombre;
-        inputApellidos.value = c.apellidos;
-        inputEmpresa.value = c.empresa;
-        inputTelefono.value = c.telefono;
-        inputEtiqueta.value = c.etiqueta;
-        inputEmail.value = c.email;
-        inputEtiquetaEmail.value = c.etiquetaEmail;
-        inputFecha.value = c.fecha;
-        inputEtiquetaFecha.value = c.etiquetaFecha;
+        inputId.value = c.id ? c.id: '';
+        inputNombre.value = c.nombre ? c.nombre: '';
+        inputApellidos.value = c.apellidos ? c.apellidos: '';
+        inputEmpresa.value = c.empresa ? c.empresa: '';
+        inputTelefono.value = c.telefono ? c.telefono: '';
+        inputEtiqueta.value = c.etiqueta ? c.etiqueta: '';
+        inputEmail.value = c.email ? c.email: '';
+        inputEtiquetaEmail.value = c.etiquetaEmail ? c.etiquetaEmail: '';
+        inputFecha.value = c.fecha ? c.fecha: '';
+        inputEtiquetaFecha.value = c.etiquetaFecha ? c.etiquetaFecha: '';
     } else {
         inputId.value = '';
         inputNombre.value = '';
