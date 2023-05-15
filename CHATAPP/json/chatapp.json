@@ -8,12 +8,42 @@
         {
             "id": 2,
             "nombre": "Pedro",
-            "estado": "Puedes hablar contigo"
+            "estado": "Puedes hablar contigo",
+            "ultimaConexion": "2023-05-15T15:21:00.000Z",
+            "conversacion": [
+                {
+                    "id": 2,
+                    "mensaje": "Espero que estés bien"
+                },
+                {
+                    "id": 1,
+                    "mensaje": "Sí gracias"
+                }
+            ]
         },
         {
             "id": 3,
             "nombre": "María",
             "estado": "No me hables"
+        }
+    ],
+    "conversaciones": [
+        {
+            "contactoId": 3,
+            "mensajes": [
+                {
+                    "mio": true,
+                    "cuando": "2023-05-15T15:21:00.000Z",
+                    "estado": 3,
+                    "mensaje": "Espero que estás bien"
+                },
+                {
+                    "mio": false,
+                    "cuando": "2023-05-15T15:21:00.000Z",
+                    "estado": 1,
+                    "mensaje": "Sí gracias"
+                }
+            ]
         }
     ]
 }
