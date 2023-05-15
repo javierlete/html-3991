@@ -1,0 +1,19 @@
+{
+    "contactos": [
+        {
+            "id": 1,
+            "nombre": "Juan",
+            "estado": "Puedes hablar conmigo"
+        },
+        {
+            "id": 2,
+            "nombre": "Pedro",
+            "estado": "Puedes hablar contigo"
+        },
+        {
+            "id": 3,
+            "nombre": "María",
+            "estado": "No me hables"
+        }
+    ]
+}

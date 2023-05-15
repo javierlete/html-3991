@@ -177,7 +177,7 @@
                         <ul class="navbar-nav">
                             <li class="text-white">
                                 <span class="fs-5">Contactos</span><br>
-                                <span class="form-text text-white">1234 contactos</span>
+                                <span id="total-contactos" class="form-text text-white">1234 contactos</span>
                             </li>
                         </ul>
                         <ul class="navbar-nav ms-auto">
@@ -196,70 +196,9 @@
                 </div>
             </nav>
 
-            <div class="row p-2">
-                <div class="col-2 text-success"><i class="fs-3 bi bi-box-seam"></i></div>
-                <div class="col-9">Archivados</div>
-            </div>
-            <div class="row p-2">
-                <div class="col-2 text-success">
-                    <span class="badge rounded-pill text-bg-secondary fs-3">I</span>
-                </div>
-                <div class="col-8">
-                    <p>
-                        <span>Ipartek</span><br>
-                        <span class="form-text"><i class="bi bi-check2-all"></i> Bla bla bla bla bla</span>
-                    </p>
-                </div>
-                <div class="col-2 form-text text-end">
-                    <span>1/2/23</span><br>
-                    <span><i class="bi bi-pin-angle-fill"></i></span>
-                </div>
-            </div>
-            <div class="row p-2">
-                <div class="col-2 text-success">
-                    <span class="badge rounded-pill text-bg-secondary fs-3">F</span>
-                </div>
-                <div class="col-8">
-                    <p>
-                        <span>Javier Lete</span><br>
-                        <span class="form-text"><i class="bi bi-check2"></i> Bla bla bla bla bla</span>
-                    </p>
-                </div>
-                <div class="col-2 form-text text-success text-end">
-                    <span>12:34</span><br>
-                    <span class="badge rounded-pill text-bg-success">1</span>
-                </div>
-            </div>
-            <div class="row p-2">
-                <div class="col-2 text-success">
-                    <span class="badge rounded-pill text-bg-secondary fs-3">F</span>
-                </div>
-                <div class="col-8">
-                    <p>
-                        <span>Javier Lete</span><br>
-                        <span class="form-text"><i class="bi bi-check2"></i> Bla bla bla bla bla</span>
-                    </p>
-                </div>
-                <div class="col-2 form-text text-success text-end">
-                    <span>12:34</span><br>
-                    <span class="badge rounded-pill text-bg-success">1</span>
-                </div>
-            </div>
-            <div class="row p-2">
-                <div class="col-2 text-success">
-                    <span class="badge rounded-pill text-bg-secondary fs-3">F</span>
-                </div>
-                <div class="col-8">
-                    <p>
-                        <span>Javier Lete</span><br>
-                        <span class="form-text"><i class="bi bi-check2"></i> Bla bla bla bla bla</span>
-                    </p>
-                </div>
-                <div class="col-2 form-text text-success text-end">
-                    <span>12:34</span><br>
-                    <span class="badge rounded-pill text-bg-success">1</span>
-                </div>
-            </div>
+            <section id="lista-contactos">
+                
+            </section>
         </section>
 
         <section class="offcanvas offcanvas-end" tabindex="-1" id="chat" aria-labelledby="chat">
@@ -341,11 +280,13 @@
                 <footer class="fixed-bottom pt-2">
                     <div id="input-mensaje" class="d-flex mx-1 mb-2">
                         <div class="input-group col">
-                            <button style="border-radius: 2rem 0 0 2rem;" class="input-group-text bg-white border border-end-0"
-                                data-bs-toggle="collapse" data-bs-target="#emojis">
+                            <button style="border-radius: 2rem 0 0 2rem;"
+                                class="input-group-text bg-white border border-end-0" data-bs-toggle="collapse"
+                                data-bs-target="#emojis">
                                 <i class="bi bi-emoji-smile text-secondary"></i></a>
                             </button>
-                            <input type="text" class="form-control border border-start-0 border-end-0" placeholder="Mensaje">
+                            <input type="text" class="form-control border border-start-0 border-end-0"
+                                placeholder="Mensaje">
                             <button class="input-group-text bg-white pe-2 border border-start-0 border-end-0">
                                 <i class="bi bi-paperclip text-secondary"></i>
                             </button>
