@@ -23,63 +23,62 @@
 </head>
 
 <body>
-    <header>
-        <nav class="navbar navbar-expand navbar-dark bg-success p-0">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="#">ChatApp</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="#">
-                                <i class="bi bi-camera"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="#">
-                                <i class="bi bi-search"></i>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-white" href="#">
-                                <i class="bi bi-three-dots-vertical"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+
+    <nav class="navbar navbar-expand navbar-dark bg-success p-0">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">ChatApp</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">
+                            <i class="bi bi-camera"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">
+                            <i class="bi bi-search"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="#">
+                            <i class="bi bi-three-dots-vertical"></i>
+                        </a>
+                    </li>
+                </ul>
             </div>
-        </nav>
-        <ul class="nav nav-tabs nav-fill bg-success" id="myTab" role="tablist">
-            <li class="nav-item" role="presentation">
-                <button class="nav-link text-white" id="grupos-tab" data-bs-toggle="tab" data-bs-target="#grupos"
-                    type="button" role="tab" aria-controls="grupos" aria-selected="true">
-                    <i class="bi bi-people"></i>
-                </button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link active" id="chats-tab" data-bs-toggle="tab" data-bs-target="#chats"
-                    type="button" role="tab" aria-controls="chats" aria-selected="false">
-                    Chats <span class="badge rounded-pill text-bg-secondary">1</span>
-                </button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link text-white" id="estados-tab" data-bs-toggle="tab" data-bs-target="#estados"
-                    type="button" role="tab" aria-controls="estados-tab-pane" aria-selected="false">
-                    Estados <span class="badge rounded-pill text-bg-secondary">1</span>
-                </button>
-            </li>
-            <li class="nav-item" role="presentation">
-                <button class="nav-link text-white" id="llamadas-tab" data-bs-toggle="tab" data-bs-target="#llamadas"
-                    type="button" role="tab" aria-controls="llamadas" aria-selected="false">
-                    Llamadas <span class="badge rounded-pill text-bg-secondary">1</span>
-                </button>
-            </li>
-        </ul>
-    </header>
+        </div>
+    </nav>
+    <ul class="sticky-top nav nav-tabs nav-fill bg-success" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link text-white" id="grupos-tab" data-bs-toggle="tab" data-bs-target="#grupos"
+                type="button" role="tab" aria-controls="grupos" aria-selected="true">
+                <i class="bi bi-people"></i>
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="chats-tab" data-bs-toggle="tab" data-bs-target="#chats" type="button"
+                role="tab" aria-controls="chats" aria-selected="false">
+                Chats <span class="badge rounded-pill text-bg-secondary">1</span>
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link text-white" id="estados-tab" data-bs-toggle="tab" data-bs-target="#estados"
+                type="button" role="tab" aria-controls="estados-tab-pane" aria-selected="false">
+                Estados <span class="badge rounded-pill text-bg-secondary">1</span>
+            </button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link text-white" id="llamadas-tab" data-bs-toggle="tab" data-bs-target="#llamadas"
+                type="button" role="tab" aria-controls="llamadas" aria-selected="false">
+                Llamadas <span class="badge rounded-pill text-bg-secondary">1</span>
+            </button>
+        </li>
+    </ul>
 
     <main class="container">
         <div class="tab-content" id="myTabContent">
@@ -264,7 +263,7 @@
         </section>
 
         <section class="offcanvas offcanvas-end" tabindex="-1" id="chat" aria-labelledby="chat">
-            <nav class="navbar navbar-expand navbar-dark bg-success p-0">
+            <nav class="offcanvas-header navbar navbar-expand navbar-dark bg-success p-0">
                 <div class="container-fluid">
                     <button type="button" class="btn btn-success p-0 fs-5" aria-label="Close"
                         data-bs-dismiss="offcanvas">
@@ -307,14 +306,67 @@
                 </div>
             </nav>
 
-            <div class="bg-secondary d-flex flex-column p-3">
-                <p class="align-self-end text-bg-success m-0 p-1 border shadow-sm rounded-3 w-auto d-inline-block">
-                    Texto mío
-                </p>
-                <p class="align-self-start bg-white text-dark m-0 p-1 border shadow-sm rounded-3 w-auto d-inline-block">
-                    Respuesta
-                </p>
+            <div class="offcanvas-body bg-secondary p-3 position-relative">
+                <div class="d-flex flex-column">
+                    <p style="max-width: 80%"
+                        class="align-self-end text-bg-success p-1 border shadow-sm rounded-3 w-auto d-inline-block">
+                        Texto mío
+                        <sub class="form-text end-0 ms-1 mb-1 float-end text-white"> 12:34 <i
+                                class="text-info bi bi-check2-all"></i></sub>
+                    </p>
+                    <p style="max-width: 80%"
+                        class="align-self-start bg-white text-dark p-1 border shadow-sm rounded-3 w-auto d-inline-block">
+                        Respuesta
+                        <sub class="form-text end-0 ms-1 mb-1 float-end"> 12:34<i class="text-white bi bi-check2"></i>
+                        </sub>
+                    </p>
+                    <p style="max-width: 80%"
+                        class="align-self-end text-bg-success p-1 border shadow-sm rounded-3 w-auto d-inline-block">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur, est illo? Ducimus, maxime
+                        autem esse iste atque quia eaque quasi porro praesentium assumenda incidunt distinctio
+                        consequatur
+                        illo magni ut corrupti!
+                        <sub class="form-text text-white end-0 ms-1 mb-1 float-end"> 12:34 <i
+                                class="text-info bi bi-check2-all"></i></sub>
+                    </p>
+                    <p style="max-width: 80%"
+                        class="align-self-start bg-white text-dark p-1 border shadow-sm rounded-3 w-auto d-inline-block">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, labore, nobis ipsum porro
+                        totam
+                        expedita dolorum praesentium mollitia, optio eligendi adipisci numquam aspernatur. Voluptatibus
+                        accusamus inventore vero minima veniam reiciendis?
+                        <sub class="form-text end-0 mb-1 ms-1 float-end"> 12:34 </sub>
+                    </p>
+                </div>
+                <footer class="fixed-bottom pt-2">
+                    <div id="input-mensaje" class="d-flex mx-1 mb-2">
+                        <div class="input-group col">
+                            <button style="border-radius: 2rem 0 0 2rem;" class="input-group-text bg-white border border-end-0"
+                                data-bs-toggle="collapse" data-bs-target="#emojis">
+                                <i class="bi bi-emoji-smile text-secondary"></i></a>
+                            </button>
+                            <input type="text" class="form-control border border-start-0 border-end-0" placeholder="Mensaje">
+                            <button class="input-group-text bg-white pe-2 border border-start-0 border-end-0">
+                                <i class="bi bi-paperclip text-secondary"></i>
+                            </button>
+                            <button style="border-radius: 0 2rem 2rem 0;"
+                                class="ps-2 input-group-text bg-white border border-start-0">
+                                <i class="bi bi-camera-fill text-secondary"></i>
+                            </button>
+                        </div>
+                        <span class="badge rounded-pill text-bg-success fs-6 ms-1">
+                            <i class="bi bi-mic-fill d-inline-block pt-1"></i>
+                        </span>
+                    </div>
+                    <div class="row collapse" id="emojis">
+                        <div class="card card-body">
+                            <input type="file" accept="image/*" capture="camera">
+                        </div>
+                    </div>
+                </footer>
             </div>
+
+
         </section>
 
     </main>
