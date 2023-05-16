@@ -3,8 +3,9 @@ const URL_CONVERSACIONES = 'http://localhost:3000/conversaciones';
 
 const estados = ['<i class="text-secondary bi bi-clock-history"></i>', '<i class="text-secondary bi bi-check2"></i>', '<i class="text-secondary bi bi-check2-all"></i>', '<i class="text-info bi bi-check2-all"></i>'];
 
+let conversacion;
 let listaContactos, totalContactosSpan, chatDestinatario, chatUltimaConexion;
-let capaConversacion;
+let capaConversacion, inputMensaje;
 
 window.addEventListener('DOMContentLoaded', async () => {
     listaContactos = document.querySelector('#lista-contactos');
@@ -12,6 +13,32 @@ window.addEventListener('DOMContentLoaded', async () => {
     chatDestinatario = document.querySelector('#chat-destinatario');
     chatUltimaConexion = document.querySelector('#chat-ultima-conexion');
     capaConversacion = document.querySelector('#conversacion');
+    inputMensaje = document.querySelector('input[type=text]');
+
+    inputMensaje.addEventListener('change', async function() {
+        const mensaje = {
+            mio: true,
+            cuando: new Date(),
+            estado: 0,
+            texto: inputMensaje.value
+        };
+        
+        enviarMensaje(mensaje);
+
+        conversacion.mensajes.push(mensaje);
+
+        const respuesta = await fetch(`${URL_CONVERSACIONES}/${conversacion.id}`,{
+            method: 'PUT',
+            body: JSON.stringify(conversacion),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        
+        console.log(respuesta);
+
+        inputMensaje.value = '';
+    });
 
     await rellenarContactos();
 
@@ -70,7 +97,7 @@ async function iniciarChat() {
     const respuestaChat = await fetch(`${URL_CONVERSACIONES}?contactoId=${contacto.id}`);
     const conversaciones = await respuestaChat.json();
 
-    const conversacion = conversaciones[0];
+    conversacion = conversaciones[0];
 
     console.log(conversacion);
 

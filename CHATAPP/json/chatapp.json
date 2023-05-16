@@ -1,62 +1,80 @@
 {
-    "contactos": [
+  "contactos": [
+    {
+      "id": 1,
+      "nombre": "Juan",
+      "estado": "Puedes hablar conmigo"
+    },
+    {
+      "id": 2,
+      "nombre": "Pedro",
+      "estado": "Puedes hablar contigo",
+      "ultimaConexion": "2023-05-15T15:21:00.000Z",
+      "conversacion": [
         {
-            "id": 1,
-            "nombre": "Juan",
-            "estado": "Puedes hablar conmigo"
+          "id": 2,
+          "mensaje": "Espero que estés bien"
         },
         {
-            "id": 2,
-            "nombre": "Pedro",
-            "estado": "Puedes hablar contigo",
-            "ultimaConexion": "2023-05-15T15:21:00.000Z",
-            "conversacion": [
-                {
-                    "id": 2,
-                    "mensaje": "Espero que estés bien"
-                },
-                {
-                    "id": 1,
-                    "mensaje": "Sí gracias"
-                }
-            ]
+          "id": 1,
+          "mensaje": "Sí gracias"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "nombre": "María",
+      "estado": "No me hables"
+    }
+  ],
+  "conversaciones": [
+    {
+      "id": 1,
+      "contactoId": 3,
+      "mensajes": [
+        {
+          "mio": true,
+          "cuando": "2023-05-15T15:21:00.000Z",
+          "estado": 3,
+          "texto": "Espero que estás bien"
         },
         {
-            "id": 3,
-            "nombre": "María",
-            "estado": "No me hables"
-        }
-    ],
-    "conversaciones": [
+          "mio": false,
+          "cuando": "2023-05-16T15:21:00.000Z",
+          "estado": 2,
+          "texto": "Sí gracias"
+        },
         {
-            "id": 1,
-            "contactoId": 3,
-            "mensajes": [
-                {
-                    "mio": true,
-                    "cuando": "2023-05-15T15:21:00.000Z",
-                    "estado": 3,
-                    "texto": "Espero que estás bien"
-                },
-                {
-                    "mio": false,
-                    "cuando": "2023-05-16T15:21:00.000Z",
-                    "estado": 2,
-                    "texto": "Sí gracias"
-                },
-                {
-                    "mio": true,
-                    "cuando": "2023-05-15T15:21:00.000Z",
-                    "estado": 1,
-                    "texto": "Espero que estás bien"
-                },
-                {
-                    "mio": false,
-                    "cuando": "2023-05-16T15:21:00.000Z",
-                    "estado": 0,
-                    "texto": "Sí gracias"
-                }
-            ]
+          "mio": true,
+          "cuando": "2023-05-15T15:21:00.000Z",
+          "estado": 1,
+          "texto": "Espero que estás bien"
+        },
+        {
+          "mio": false,
+          "cuando": "2023-05-16T15:21:00.000Z",
+          "estado": 0,
+          "texto": "Sí gracias"
+        },
+        {
+          "mio": true,
+          "cuando": "2023-05-16T14:42:22.821Z",
+          "estado": 0,
+          "texto": "Bueno"
+        },
+        {
+          "mio": true,
+          "cuando": "2023-05-16T14:42:25.149Z",
+          "estado": 0,
+          "texto": "Vale"
+        },
+        {
+          "mio": true,
+          "cuando": "2023-05-16T14:43:06.404Z",
+          "estado": 0,
+          "texto": "Otro más"
         }
-    ]
+      ]
+    }
+  ]
 }
