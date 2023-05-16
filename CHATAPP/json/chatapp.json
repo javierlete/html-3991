@@ -73,8 +73,56 @@
           "cuando": "2023-05-16T14:43:06.404Z",
           "estado": 0,
           "texto": "Otro más"
+        },
+        {
+          "mio": true,
+          "cuando": "2023-05-16T15:06:01.890Z",
+          "estado": 0,
+          "texto": "asdfasdfasdf"
         }
       ]
+    },
+    {
+      "contactoId": 2,
+      "mensajes": [
+        {
+          "mio": true,
+          "cuando": "2023-05-16T14:52:20.418Z",
+          "estado": 0,
+          "texto": "¿Qué pasa?"
+        },
+        {
+          "mio": true,
+          "cuando": "2023-05-16T14:52:25.977Z",
+          "estado": 0,
+          "texto": "PedroooooooOOOOOOOO"
+        },
+        {
+          "mio": true,
+          "cuando": "2023-05-16T15:08:24.530Z",
+          "estado": 0,
+          "texto": "Tú has estado en los Óscar"
+        }
+      ],
+      "id": 5
+    },
+    {
+      "contactoId": 1,
+      "mensajes": [
+        {
+          "mio": true,
+          "cuando": "2023-05-16T15:09:06.767Z",
+          "estado": 0,
+          "texto": "Hola que tal"
+        },
+        {
+          "mio": true,
+          "cuando": "2023-05-16T15:09:16.526Z",
+          "estado": 0,
+          "texto": "No hay quien te aJuante"
+        }
+      ],
+      "id": 6
     }
   ]
 }

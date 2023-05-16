@@ -27,8 +27,8 @@ window.addEventListener('DOMContentLoaded', async () => {
 
         conversacion.mensajes.push(mensaje);
 
-        const respuesta = await fetch(`${URL_CONVERSACIONES}/${conversacion.id}`,{
-            method: 'PUT',
+        const respuesta = await fetch(`${URL_CONVERSACIONES}/${conversacion.id ? conversacion.id : ''}`,{
+            method: conversacion.id ? 'PUT': 'POST',
             body: JSON.stringify(conversacion),
             headers: {
                 'Content-Type': 'application/json'
@@ -36,6 +36,8 @@ window.addEventListener('DOMContentLoaded', async () => {
         });
         
         console.log(respuesta);
+
+        conversacion = await respuesta.json();
 
         inputMensaje.value = '';
     });
@@ -101,13 +103,18 @@ async function iniciarChat() {
 
     console.log(conversacion);
 
+    capaConversacion.innerHTML = '';
+
     if (conversacion) {
         const mensajes = conversacion.mensajes;
 
-        capaConversacion.innerHTML = '';
-
         for (const mensaje of mensajes) {
             enviarMensaje(mensaje);
+        }
+    } else {
+        conversacion = {
+            contactoId: contacto.id,
+            mensajes: []
         }
     }
 }
