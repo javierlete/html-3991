@@ -3,7 +3,7 @@ const URL_CONVERSACIONES = 'http://localhost:3000/conversaciones';
 
 const estados = ['<i class="text-secondary bi bi-clock-history"></i>', '<i class="text-secondary bi bi-check2"></i>', '<i class="text-secondary bi bi-check2-all"></i>', '<i class="text-info bi bi-check2-all"></i>'];
 
-let conversacion;
+let conversacion, chats;
 let listaContactos, totalContactosSpan, chatDestinatario, chatUltimaConexion;
 let capaConversacion, inputMensaje;
 
@@ -14,37 +14,92 @@ window.addEventListener('DOMContentLoaded', async () => {
     chatUltimaConexion = document.querySelector('#chat-ultima-conexion');
     capaConversacion = document.querySelector('#conversacion');
     inputMensaje = document.querySelector('input[type=text]');
+    chats = document.querySelector('#chats');
 
-    inputMensaje.addEventListener('change', async function() {
-        const mensaje = {
-            mio: true,
-            cuando: new Date(),
-            estado: 0,
-            texto: inputMensaje.value
-        };
-        
-        enviarMensaje(mensaje);
-
-        conversacion.mensajes.push(mensaje);
-
-        const respuesta = await fetch(`${URL_CONVERSACIONES}/${conversacion.id ? conversacion.id : ''}`,{
-            method: conversacion.id ? 'PUT': 'POST',
-            body: JSON.stringify(conversacion),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        });
-        
-        console.log(respuesta);
-
-        conversacion = await respuesta.json();
-
-        inputMensaje.value = '';
-    });
+    inputMensaje.addEventListener('change', aceptarMensaje);
 
     await rellenarContactos();
-
+    await rellenarConversaciones();
 });
+
+async function rellenarConversaciones() {
+    const respuesta = await fetch(URL_CONVERSACIONES);
+    const conversaciones = await respuesta.json();
+
+    chats.innerHTML = '';
+
+    for (const conversacion of conversaciones) {
+        const respuestaContacto = await fetch(`${URL_CONTACTOS}/${conversacion.contactoId}`);
+        const contacto = await respuestaContacto.json();
+
+        const div = document.createElement('div');
+
+        div.className = 'row p-2';
+        div.dataset.bsToggle = 'offcanvas';
+        div.dataset.bsTarget = '#chat';
+
+        const icono = contacto.nombre[0];
+        const nombre = contacto.nombre;
+        const estado = estados[conversacion.estado];
+
+        const mensaje = conversacion.mensajes[conversacion.mensajes.length - 1];
+
+        const ultimoMensaje = mensaje.texto;
+        const ultimoMensajeHora = procesarFecha(mensaje.cuando);
+        const pendientes = conversacion.mensajes.reduce(
+            (total, mensaje) => total + (!mensaje.mio && mensaje.estado != 3 ? 1 : 0), 
+        0);
+
+        div.dataset.id = contacto.id;
+        div.addEventListener('click', iniciarChat);
+
+        div.innerHTML = 
+                `
+                    <div class="col-2 text-success">
+                        <span class="badge rounded-pill text-bg-secondary fs-3">${icono}</span>
+                    </div>
+                    <div class="col-8">
+                        <p>
+                            <span>${nombre}</span><br>
+                            <span class="form-text">${estado} ${ultimoMensaje}</span>
+                        </p>
+                    </div>
+                    <div class="col-2 form-text text-success text-end">
+                        <span>${ultimoMensajeHora}</span><br>
+                        ${pendientes ? '<span class="badge rounded-pill text-bg-success">' + pendientes + '</span>' : ''}
+                    </div>
+                `;
+        
+        chats.appendChild(div);
+    }
+}
+
+async function aceptarMensaje() {
+    const mensaje = {
+        mio: true,
+        cuando: new Date(),
+        estado: 0,
+        texto: inputMensaje.value
+    };
+    
+    enviarMensaje(mensaje);
+
+    conversacion.mensajes.push(mensaje);
+
+    const respuesta = await fetch(`${URL_CONVERSACIONES}/${conversacion.id ? conversacion.id : ''}`,{
+        method: conversacion.id ? 'PUT': 'POST',
+        body: JSON.stringify(conversacion),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+    
+    console.log(respuesta);
+
+    conversacion = await respuesta.json();
+
+    inputMensaje.value = '';
+}
 async function rellenarContactos() {
     const respuesta = await fetch(URL_CONTACTOS);
     const contactos = await respuesta.json();
@@ -151,5 +206,5 @@ function enviarMensaje(mensaje) {
 function procesarFecha(fechaTexto) {
     const fecha = new Date(fechaTexto);
     
-    return fecha.getHours() + ':' + fecha.getMinutes();
+    return fecha.getHours() + ':' + (fecha.getMinutes() < 10 ? '0' : '') + fecha.getMinutes();
 }

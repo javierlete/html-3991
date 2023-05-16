@@ -29,60 +29,6 @@
   ],
   "conversaciones": [
     {
-      "id": 1,
-      "contactoId": 3,
-      "mensajes": [
-        {
-          "mio": true,
-          "cuando": "2023-05-15T15:21:00.000Z",
-          "estado": 3,
-          "texto": "Espero que estás bien"
-        },
-        {
-          "mio": false,
-          "cuando": "2023-05-16T15:21:00.000Z",
-          "estado": 2,
-          "texto": "Sí gracias"
-        },
-        {
-          "mio": true,
-          "cuando": "2023-05-15T15:21:00.000Z",
-          "estado": 1,
-          "texto": "Espero que estás bien"
-        },
-        {
-          "mio": false,
-          "cuando": "2023-05-16T15:21:00.000Z",
-          "estado": 0,
-          "texto": "Sí gracias"
-        },
-        {
-          "mio": true,
-          "cuando": "2023-05-16T14:42:22.821Z",
-          "estado": 0,
-          "texto": "Bueno"
-        },
-        {
-          "mio": true,
-          "cuando": "2023-05-16T14:42:25.149Z",
-          "estado": 0,
-          "texto": "Vale"
-        },
-        {
-          "mio": true,
-          "cuando": "2023-05-16T14:43:06.404Z",
-          "estado": 0,
-          "texto": "Otro más"
-        },
-        {
-          "mio": true,
-          "cuando": "2023-05-16T15:06:01.890Z",
-          "estado": 0,
-          "texto": "asdfasdfasdf"
-        }
-      ]
-    },
-    {
       "contactoId": 2,
       "mensajes": [
         {
@@ -123,6 +69,18 @@
         }
       ],
       "id": 6
+    },
+    {
+      "contactoId": 3,
+      "mensajes": [
+        {
+          "mio": true,
+          "cuando": "2023-05-16T15:35:25.449Z",
+          "estado": 0,
+          "texto": "asdfasdfasd"
+        }
+      ],
+      "id": 7
     }
   ]
 }
