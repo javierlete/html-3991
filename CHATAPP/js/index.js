@@ -1,12 +1,17 @@
 const URL_CONTACTOS = 'http://localhost:3000/contactos';
+const URL_CONVERSACIONES = 'http://localhost:3000/conversaciones';
+
+const estados = ['<i class="text-secondary bi bi-clock-history"></i>', '<i class="text-secondary bi bi-check2"></i>', '<i class="text-secondary bi bi-check2-all"></i>', '<i class="text-info bi bi-check2-all"></i>'];
 
 let listaContactos, totalContactosSpan, chatDestinatario, chatUltimaConexion;
+let capaConversacion;
 
 window.addEventListener('DOMContentLoaded', async () => {
     listaContactos = document.querySelector('#lista-contactos');
     totalContactosSpan = document.querySelector('#total-contactos');
     chatDestinatario = document.querySelector('#chat-destinatario');
     chatUltimaConexion = document.querySelector('#chat-ultima-conexion');
+    capaConversacion = document.querySelector('#conversacion');
 
     await rellenarContactos();
 
@@ -61,4 +66,56 @@ async function iniciarChat() {
     const fecha = Date.parse(contacto.ultimaConexion);
 
     chatUltimaConexion.innerText = new Date(fecha).toLocaleString();
+
+    const respuestaChat = await fetch(`${URL_CONVERSACIONES}?contactoId=${contacto.id}`);
+    const conversaciones = await respuestaChat.json();
+
+    const conversacion = conversaciones[0];
+
+    console.log(conversacion);
+
+    if (conversacion) {
+        const mensajes = conversacion.mensajes;
+
+        capaConversacion.innerHTML = '';
+
+        for (const mensaje of mensajes) {
+            enviarMensaje(mensaje);
+        }
+    }
+}
+
+function enviarMensaje(mensaje) {
+    const p = document.createElement('p');
+    const sub = document.createElement('sub');
+
+    sub.className = 'form-text end-0 ms-1 mb-1 float-end ';
+
+    p.style.maxWidth = '80%';
+    p.className = 'p-1 border shadow-sm rounded-3 w-auto d-inline-block';
+
+    const cuando = procesarFecha(mensaje.cuando);
+    const estado = estados[mensaje.estado];
+
+    sub.innerHTML = `${cuando} ${estado}`;
+    p.innerHTML = mensaje.texto;
+    p.appendChild(sub);
+
+    if (mensaje.mio) {
+        //p.classList.add('text-bg-success');
+        p.style.backgroundColor = '#ccffcc';
+        p.classList.add('align-self-end');
+    } else {
+        p.classList.add('bg-white');
+        p.classList.add('text-dark');
+        p.classList.add('align-self-start');
+    }
+
+    capaConversacion.appendChild(p);
+}
+
+function procesarFecha(fechaTexto) {
+    const fecha = new Date(fechaTexto);
+    
+    return fecha.getHours() + ':' + fecha.getMinutes();
 }

@@ -29,19 +29,32 @@
     ],
     "conversaciones": [
         {
+            "id": 1,
             "contactoId": 3,
             "mensajes": [
                 {
                     "mio": true,
                     "cuando": "2023-05-15T15:21:00.000Z",
                     "estado": 3,
-                    "mensaje": "Espero que estás bien"
+                    "texto": "Espero que estás bien"
                 },
                 {
                     "mio": false,
+                    "cuando": "2023-05-16T15:21:00.000Z",
+                    "estado": 2,
+                    "texto": "Sí gracias"
+                },
+                {
+                    "mio": true,
                     "cuando": "2023-05-15T15:21:00.000Z",
                     "estado": 1,
-                    "mensaje": "Sí gracias"
+                    "texto": "Espero que estás bien"
+                },
+                {
+                    "mio": false,
+                    "cuando": "2023-05-16T15:21:00.000Z",
+                    "estado": 0,
+                    "texto": "Sí gracias"
                 }
             ]
         }
