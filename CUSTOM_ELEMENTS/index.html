@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Elements</title>
+
+    <script type="module" src="js/componentes/jl-componentes.js"></script>
+    <script src="js/index.js"></script>
+
+    <style>
+        h1 {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <jl-login></jl-login>
+
+    <form>
+        <jl-label-input id="email" type="email" required></jl-label-input>
+        <jl-label-input id="password" type="password" required></jl-label-input>
+        <jl-label-input id="comentarios" type="textarea"></jl-label-input>
+        <jl-label-input id="aceptar" type="checkbox" required></jl-label-input>
+        <jl-label-input id="guardar" type="submit" required></jl-label-input>
+    </form>
+    
+    <h1>Prueba</h1>
+    <jl-titulo texto="Hola que tal"></jl-titulo>
+    <h1>Prueba</h1>
+</body>
+</html>
