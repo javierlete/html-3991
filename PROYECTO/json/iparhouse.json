@@ -1,0 +1,50 @@
+{
+  "viviendas": [
+    {
+      "id": 1,
+      "nombre": "Apartamento en el centro",
+      "direccion": "Calle Pedro Antonio de Alarcón, 10, 18004 Granada",
+      "tipo": "Alquiler",
+      "imagen": "https://picsum.photos/200?1",
+      "precio": 950
+    },
+    {
+      "id": 2,
+      "nombre": "Piso en el Albaicín",
+      "direccion": "Calle Calderería Nueva, 10, 18010 Granada",
+      "tipo": "Venta",
+      "imagen": "https://picsum.photos/200?2",
+      "precio": 250000
+    },
+    {
+      "id": 3,
+      "nombre": "Casa con jardín",
+      "direccion": "Calle Francisco Ayala, 5, 18140 La Zubia, Granada",
+      "tipo": "Venta",
+      "imagen": "https://picsum.photos/200?3",
+      "precio": 450000
+    },
+    {
+      "id": 4,
+      "nombre": "Ático con terraza",
+      "direccion": "Calle Gran Vía de Colón, 7, 18001 Granada",
+      "tipo": "Alquiler",
+      "imagen": "https://picsum.photos/200?4",
+      "precio": 1200
+    },
+    {
+      "nombre": "Nueva2",
+      "direccion": "Nueva dirección2",
+      "tipo": "Venta",
+      "precio": "1234567",
+      "id": 5
+    },
+    {
+      "nombre": "asdfasdf",
+      "direccion": "13rqrgsdghdgh",
+      "tipo": "Alquiler",
+      "precio": "1234",
+      "id": 6
+    }
+  ]
+}

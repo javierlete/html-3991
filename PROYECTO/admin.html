@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="es" class="h-100">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="js/admin.js"></script>
+</head>
+
+<body class="h-100">
+    <header class="p-2 text-bg-primary fixed-top">
+        Inmobiliaria IparHouse
+    </header>
+
+    <main class="container-fluid h-100 py-5">
+        <div class="row h-100 py-3">
+            <section id="detalle" class="col h-100">
+                <div class="card h-100 overflow-scroll">
+                    <table class="table table-hover table-striped table-bordered">
+                        <thead class="text-bg-dark">
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Dirección</th>
+                                <th>Tipo</th>
+                                <th>Precio</th>
+                                <td>
+                                    <a href="javascript:anyadir()" class="btn btn-primary">Añadir</a>
+                                </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- tr*10>(th>{Vivienda$})+(td>{Dirección$})+(td>{Alquiler})+(td>{$$$$})+(td>a.btn.btn-primary[href="#"]>{Editar}^a.btn.btn-danger[href="#"]>{Borrar}) -->
+                            <tr>
+                                <th>Vivienda1</th>
+                                <td>Dirección1</td>
+                                <td>Alquiler</td>
+                                <td>0001</td>
+                                <td><a href="#" class="btn btn-primary">Editar</a><a href="#" class="btn btn-danger">Borrar</a></td>
+                            </tr>
+                            <tr>
+                                <th>Vivienda2</th>
+                                <td>Dirección2</td>
+                                <td>Alquiler</td>
+                                <td>0002</td>
+                                <td><a href="#" class="btn btn-primary">Editar</a><a href="#" class="btn btn-danger">Borrar</a></td>
+                            </tr>
+                            <tr>
+                                <th>Vivienda3</th>
+                                <td>Dirección3</td>
+                                <td>Alquiler</td>
+                                <td>0003</td>
+                                <td><a href="#" class="btn btn-primary">Editar</a><a href="#" class="btn btn-danger">Borrar</a></td>
+                            </tr>
+                            <tr>
+                                <th>Vivienda4</th>
+                                <td>Dirección4</td>
+                                <td>Alquiler</td>
+                                <td>0004</td>
+                                <td><a href="#" class="btn btn-primary">Editar</a><a href="#" class="btn btn-danger">Borrar</a></td>
+                            </tr>
+                            <tr>
+                                <th>Vivienda5</th>
+                                <td>Dirección5</td>
+                                <td>Alquiler</td>
+                                <td>0005</td>
+                                <td><a href="#" class="btn btn-primary">Editar</a><a href="#" class="btn btn-danger">Borrar</a></td>
+                            </tr>
+                            <tr>
+                                <th>Vivienda6</th>
+                                <td>Dirección6</td>
+                                <td>Alquiler</td>
+                                <td>0006</td>
+                                <td><a href="#" class="btn btn-primary">Editar</a><a href="#" class="btn btn-danger">Borrar</a></td>
+                            </tr>
+                            <tr>
+                                <th>Vivienda7</th>
+                                <td>Dirección7</td>
+                                <td>Alquiler</td>
+                                <td>0007</td>
+                                <td><a href="#" class="btn btn-primary">Editar</a><a href="#" class="btn btn-danger">Borrar</a></td>
+                            </tr>
+                            <tr>
+                                <th>Vivienda8</th>
+                                <td>Dirección8</td>
+                                <td>Alquiler</td>
+                                <td>0008</td>
+                                <td><a href="#" class="btn btn-primary">Editar</a><a href="#" class="btn btn-danger">Borrar</a></td>
+                            </tr>
+                            <tr>
+                                <th>Vivienda9</th>
+                                <td>Dirección9</td>
+                                <td>Alquiler</td>
+                                <td>0009</td>
+                                <td><a href="#" class="btn btn-primary">Editar</a><a href="#" class="btn btn-danger">Borrar</a></td>
+                            </tr>
+                            <tr>
+                                <th>Vivienda10</th>
+                                <td>Dirección10</td>
+                                <td>Alquiler</td>
+                                <td>0010</td>
+                                <td><a href="#" class="btn btn-primary">Editar</a><a href="#" class="btn btn-danger">Borrar</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <div class="col h-100">
+                <div class="h-100">
+                    <form class="h-50">
+                        <form>
+                            <input type="hidden" id="id">
+                            <div class="row mb-3">
+                                <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="nombre">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <label for="direccion" class="col-sm-2 col-form-label">Dirección</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" id="direccion">
+                                </div>
+                            </div>
+                            <fieldset class="row mb-3">
+                                <legend class="col-form-label col-sm-2 pt-0">Tipo</legend>
+                                <div class="col-sm-10">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="tipo" id="alquiler"
+                                            value="option1" checked>
+                                        <label class="form-check-label" for="alquiler">
+                                            Alquiler
+                                        </label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="radio" name="tipo" id="venta"
+                                            value="option2">
+                                        <label class="form-check-label" for="venta">
+                                            Venta
+                                        </label>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="row mb-3">
+                                <label for="precio" class="col-sm-2 col-form-label">Precio</label>
+                                <div class="col-sm-10">
+                                    <input type="number" step=".01" class="form-control" id="precio">
+                                </div>
+                            </div>
+                            <div class="row mb-3">
+                                <div class="offset-sm-2 col-sm-10">
+                                    <button type="submit" class="btn btn-primary">Guardar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="p-2 text-bg-primary fixed-bottom">
+        &copy;2023 Javier Lete
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
